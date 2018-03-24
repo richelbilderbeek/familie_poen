@@ -33,6 +33,16 @@ const card& game::active_card() const noexcept
   return m_pile.back();
 }
 
+bool game::can_do_move(const int player_index) const
+{
+  const auto hand = m_hands.at(player_index);
+  return std::count_if(
+    std::begin(hand),
+    std::end(hand),
+    [this](const card& c){ return can_play(c); }
+  );
+}
+
 bool game::can_play(const card& c) const noexcept
 {
   const auto top = active_card();

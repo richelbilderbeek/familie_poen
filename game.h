@@ -14,6 +14,9 @@ public:
 
   const card& active_card() const noexcept;
 
+  ///Can the player do a move?
+  bool can_do_move(const int player_index) const;
+
   ///Can the card be played?
   bool can_play(const card& c) const noexcept;
 

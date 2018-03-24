@@ -20,4 +20,7 @@ private:
 
 std::string ask_user_for_string() noexcept;
 
+///Determine if the string can be converted to an integer
+bool is_number(const std::string& s) noexcept;
+
 #endif // CONSOLE_GAME_H
