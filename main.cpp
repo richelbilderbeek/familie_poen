@@ -2,6 +2,7 @@
 
 int main()
 {
-  console_game c;
+  const int n_players{2};
+  console_game c(n_players);
   c.execute();
 }
