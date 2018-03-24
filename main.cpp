@@ -1,9 +1,7 @@
-#include <iostream>
-
-using namespace std;
+#include <console_game.h>
 
 int main()
 {
-  cout << "Hello World!" << endl;
-  return 0;
+  console_game c;
+  c.execute();
 }
