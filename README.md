@@ -1,6 +1,8 @@
 # Familie Poen
 
-Card game
+Card game.
+
+![Cards](Cards.jpg)
 
  * Cards have values 1,2,5,10,20,50
  * Each card has 6 colors
