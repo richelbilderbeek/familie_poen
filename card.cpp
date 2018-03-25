@@ -39,6 +39,13 @@ bool is_card_value(const int value) noexcept
   return legal_values.count(value) == 1;
 }
 
+bool is_combination(const card& lhs, const card& rhs)
+{
+  return lhs.get_color() == rhs.get_color()
+    || lhs.get_value() == rhs.get_value()
+  ;
+}
+
 bool operator==(const card& lhs, const card& rhs) noexcept
 {
   return lhs.get_value() == rhs.get_value()

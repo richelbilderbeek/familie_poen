@@ -6,8 +6,11 @@
 
 enum class ai_strategy
 {
+  common_in_hand, //play card that is rare in play (thus common in hands)
   highest_value, // play the card with the highest value
-  lowest_value // play the card with the lowest value
+  lowest_value, // play the card with the lowest value
+  random, //play randomly
+  uncommon_in_hand //play card that is common in play (thus rare in hands)
 };
 
 ///Obtain a vector with all ai_strategies

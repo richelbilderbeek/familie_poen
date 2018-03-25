@@ -27,6 +27,9 @@ std::vector<int> all_values() noexcept;
 ///Is the value a valid card value?
 bool is_card_value(const int value) noexcept;
 
+///Do the cards share an equal color or value?
+bool is_combination(const card& lhs, const card& rhs);
+
 bool operator==(const card& lhs, const card& rhs) noexcept;
 bool operator<(const card& lhs, const card& rhs) noexcept;
 

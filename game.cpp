@@ -43,8 +43,7 @@ game::game(
 
 bool game::can_play(const card& c) const noexcept
 {
-  const auto top = get_active_card();
-  return c.get_color() == top.get_color() || c.get_value() == top.get_value();
+  return is_combination(c, get_active_card());
 }
 
 void game::do_action(const action& a)
@@ -130,6 +129,13 @@ const card& game::get_active_card() const noexcept
 {
   assert(!m_played_pile.empty());
   return m_played_pile.back();
+}
+
+const hand& game::get_active_hand() const noexcept
+{
+  assert(m_player_index >= 0);
+  assert(m_player_index < static_cast<int>(m_hands.size()));
+  return m_hands[m_player_index];
 }
 
 hand& game::get_active_hand() noexcept

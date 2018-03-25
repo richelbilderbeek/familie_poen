@@ -37,7 +37,11 @@ int get_winner(
       return g.get_player_index();
     }
     assert(!actions.empty());
-    const action& a = ais[g.get_player_index()].pick_action(actions);
+    const action& a = ais[g.get_player_index()].pick_action(
+      actions,
+      g.get_played_pile(),
+      const_cast<const game&>(g).get_active_hand()
+    );
     if (verbose)
     {
       std::cout << "Do action: " << a << '\n';

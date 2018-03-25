@@ -23,6 +23,9 @@ public:
   ///Top card of the played pile
   const card& get_active_card() const noexcept;
 
+  ///Get the currently active hand, the hand of the current player
+  const hand& get_active_hand() const noexcept;
+
   ///Get the draw pile
   const auto& get_draw_pile() const noexcept { return m_draw_pile; }
 
