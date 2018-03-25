@@ -1,0 +1,25 @@
+#!/bin/bash
+# Run all sims
+#SBATCH --time=1:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --ntasks=1
+#SBATCH --mem=1G
+#SBATCH --job-name=exp_4
+#SBATCH --output=exp_4.log
+sbatch ./process_1 LLLL 1000000
+sbatch ./process_1 LLLH 1000000
+sbatch ./process_1 LLHL 1000000
+sbatch ./process_1 LLHH 1000000
+sbatch ./process_1 LHLL 1000000
+sbatch ./process_1 LHLH 1000000
+sbatch ./process_1 LHHL 1000000
+sbatch ./process_1 LHHH 1000000
+sbatch ./process_1 HLLL 1000000
+sbatch ./process_1 HLLH 1000000
+sbatch ./process_1 HLHL 1000000
+sbatch ./process_1 HLHH 1000000
+sbatch ./process_1 HHLL 1000000
+sbatch ./process_1 HHLH 1000000
+sbatch ./process_1 HHHL 1000000
+sbatch ./process_1 HHHH 1000000
