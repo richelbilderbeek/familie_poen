@@ -1,5 +1,6 @@
 #include "card_color.h"
 
+#include <cassert>
 #include <string>
 
 std::vector<card_color> all_colors() noexcept
@@ -26,7 +27,7 @@ std::string to_str(const card_color c) noexcept
     case card_color::pink: return "P";
     case card_color::blue: return "B";
   }
-
+  assert(!"Should not get here"); return ""; //!OCLINT
 }
 
 std::ostream& operator<<(std::ostream& os, const card_color color) noexcept
