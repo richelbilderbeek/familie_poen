@@ -17,7 +17,8 @@ SOURCES += \
     action.cpp \
     action_type.cpp \
     ai.cpp \
-    ai_strategy.cpp
+    ai_strategy.cpp \
+    hand.cpp
 
 HEADERS += \
     game.h \
@@ -28,7 +29,8 @@ HEADERS += \
     action.h \
     action_type.h \
     ai.h \
-    ai_strategy.h
+    ai_strategy.h \
+    hand.h
 
 # Debug and release settings
 CONFIG += debug_and_release

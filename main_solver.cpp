@@ -4,6 +4,7 @@
 
 #include <cassert>
 #include <iostream>
+#include <iterator>
 
 int get_winner(
   const int rng_seed,
@@ -41,7 +42,22 @@ int get_winner(
     {
       std::cout << "Do action: " << a << '\n';
     }
-    g.do_action(a);
+    try
+    {
+      g.do_action(a);
+    }
+    catch (const std::runtime_error& e)
+    {
+      std::cerr
+        << "Error: " << e.what() << '\n'
+        << "rng_seed: " << rng_seed << '\n'
+      ;
+      std::copy(std::begin(strategies), std::end(strategies),
+        std::ostream_iterator<ai_strategy>(std::cerr, " ")
+      );
+      std::cerr << '\n';
+      throw;
+    }
   }
 
 }
@@ -83,6 +99,21 @@ void run_experiment(
 
 int main(int argc, char* argv[])
 {
+  {
+    const int actual{
+      get_winner(
+        62630,
+        {
+          ai_strategy::lowest_value,
+          ai_strategy::lowest_value,
+          ai_strategy::lowest_value,
+          ai_strategy::lowest_value
+        },
+        true
+      )
+    };
+    assert(actual >= -1);
+  }
   std::vector<std::string> args(argv, argv + argc);
   if (args.size() != 3)
   {

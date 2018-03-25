@@ -3,10 +3,10 @@
 
 #include "action.h"
 #include "card.h"
+#include "hand.h"
 #include "game_state.h"
 
 #include <random>
-#include <set>
 #include <vector>
 
 /// Game logic
@@ -37,13 +37,11 @@ public:
   const auto& get_played_pile() const noexcept { return m_played_pile; }
 
   ///Get a player's hand
-  const std::set<card>& get_player_hand(const int get_player_index) const noexcept;
+  const hand& get_player_hand(const int get_player_index) const noexcept;
 
   ///Index of the active player
   int get_player_index() const noexcept { return m_player_index; }
 
-  ///Get the state that the game is in now
-  //game_state get_state() const noexcept { return m_state; }
 private:
 
   ///The pile of cards to draw from
@@ -51,7 +49,7 @@ private:
 
   ///The cards in the hands of the players.
   ///The human player is always at index 0
-  std::vector<std::set<card>> m_hands;
+  std::vector<hand> m_hands;
 
   ///The cards that are played, the top card is the active card
   std::vector<card> m_played_pile;
@@ -66,11 +64,24 @@ private:
   const int m_rng_seed;
 
   ///Get the currently active hand, the hand of the current player
-  auto& active_hand() noexcept;
+  hand& get_active_hand() noexcept;
 
   ///Can the card be played?
   bool can_play(const card& c) const noexcept;
+
+  ///Is the game in a valid state, for example,
+  ///are there still 36 cards in all piles?
+  bool is_valid() const noexcept;
+
+  /// If the draw pile is empty, shuffle to played card
+  /// in the draw pile
+  void reshuffle() noexcept;
 };
+
+std::string draw_pile_to_str(std::vector<card> draw_pile);
+
+///Count the number of cards in the game
+int get_n_cards(const game& g) noexcept;
 
 std::string hash(const game& g) noexcept;
 

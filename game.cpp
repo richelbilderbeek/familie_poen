@@ -26,13 +26,85 @@ game::game(
     }
   }
   m_draw_pile = cards;
-  //Draw first card
+  //Take first card from draw pile
   m_played_pile.push_back(m_draw_pile.back());
   m_draw_pile.pop_back();
 
   assert(this->get_n_players() == n_players);
   //All players should have five card
-  for (const auto& hand: m_hands) { assert(hand.size() == 5); }
+  #ifndef NDEBUG
+  for (const auto& h: m_hands) { assert(h.size() == 5); }
+  #endif
+  assert(m_draw_pile.size() > 2);
+  assert(m_played_pile.size() == 1); //Only the active card
+  assert(is_valid());
+  assert(!m_draw_pile.empty());
+}
+
+bool game::can_play(const card& c) const noexcept
+{
+  const auto top = get_active_card();
+  return c.get_color() == top.get_color() || c.get_value() == top.get_value();
+}
+
+void game::do_action(const action& a)
+{
+  assert(is_valid());
+  if (a.get_type() == action_type::play)
+  {
+    m_played_pile.push_back(a.get_card());
+    get_active_hand().erase(a.get_card());
+    m_player_index = (m_player_index + 1) % get_n_players();
+    return;
+  }
+  assert(a.get_type() == action_type::draw);
+  assert(is_valid());
+  assert(!m_draw_pile.empty());
+  if (m_draw_pile.empty())
+  {
+    throw std::runtime_error("Empty draw pile");
+  }
+  assert(!m_draw_pile.empty());
+  const auto drawn_card = m_draw_pile.back();
+  m_draw_pile.pop_back();
+  get_active_hand().insert(drawn_card);
+
+  if (m_draw_pile.empty())
+  {
+    reshuffle();
+  }
+
+  const auto new_actions = get_actions();
+  assert(new_actions.size() == 1);
+  const auto& new_action = new_actions.back();
+  if (new_action.get_type() == action_type::draw)
+  {
+    m_player_index = (m_player_index + 1) % get_n_players();
+  }
+  else
+  {
+    do_action(new_action);
+  }
+  assert(is_valid());
+}
+
+std::string draw_pile_to_str(std::vector<card> draw_pile)
+{
+  std::stringstream s;
+  //Cards that are not yet draw, display cards on top first
+  s << "(";
+
+  //Show other cards
+  std::reverse_copy(
+    std::begin(draw_pile),
+    std::end(draw_pile),
+    std::ostream_iterator<card>(s, " ")
+  );
+  std::string t = s.str();
+  assert(!t.empty());
+  t.pop_back();
+  t += ")";
+  return t;
 }
 
 std::vector<action> game::get_actions() const noexcept
@@ -40,9 +112,9 @@ std::vector<action> game::get_actions() const noexcept
   std::vector<action> actions;
 
   // Can play a card?
-  const auto hand = m_hands.at(m_player_index);
-  if (hand.empty()) return {};
-  for (const card& c: hand)
+  const auto h = m_hands.at(m_player_index);
+  if (h.empty()) return {};
+  for (const card& c: h)
   {
     if (can_play(c))
     {
@@ -65,51 +137,29 @@ const card& game::get_active_card() const noexcept
   return m_played_pile.back();
 }
 
-auto& game::active_hand() noexcept
+hand& game::get_active_hand() noexcept
 {
   assert(m_player_index >= 0);
   assert(m_player_index < static_cast<int>(m_hands.size()));
   return m_hands[m_player_index];
 }
 
-bool game::can_play(const card& c) const noexcept
+int get_n_cards(const game& g) noexcept
 {
-  const auto top = get_active_card();
-  return c.get_color() == top.get_color() || c.get_value() == top.get_value();
+  int n_cards = 0;
+  const int n_players{g.get_n_players()};
+  for (int i=0; i!=n_players; ++i)
+  {
+    n_cards += g.get_n_cards(i);
+  }
+  n_cards += g.get_played_pile().size() + g.get_draw_pile().size();
+  return n_cards;
 }
 
-void game::do_action(const action& a)
+bool game::is_valid() const noexcept
 {
-  if (a.get_type() == action_type::play)
-  {
-    m_played_pile.push_back(a.get_card());
-    active_hand().erase(a.get_card());
-    m_player_index = (m_player_index + 1) % get_n_players();
-    return;
-  }
-  assert(a.get_type() == action_type::draw);
-  if (m_draw_pile.empty())
-  {
-    m_draw_pile = m_played_pile;
-    m_played_pile = { get_active_card() };
-    assert(m_draw_pile.back() == get_active_card());
-    m_draw_pile.pop_back();
-    std::shuffle(std::begin(m_draw_pile), std::end(m_draw_pile), m_rng_engine);
-  }
-  assert(!m_draw_pile.empty());
-  const auto drawn_card = m_draw_pile.back();
-  m_draw_pile.pop_back();
-  active_hand().insert(drawn_card);
-
-  if (get_actions().empty())
-  {
-    m_player_index = (m_player_index + 1) % get_n_players();
-  }
-  else
-  {
-    assert(get_actions().size() == 1);
-    do_action(get_actions().back());
-  }
+  if (::get_n_cards(*this) != 36) return false;
+  return true;
 }
 
 std::string hash(const game& g) noexcept
@@ -135,8 +185,8 @@ std::string hash(const game& g) noexcept
     const int n_players = g.get_n_players();
     for (int i=0; i!=n_players; ++i)
     {
-      const auto& hand = g.get_player_hand(i);
-      for (const card& c: hand)
+      const auto& h = g.get_player_hand(i);
+      for (const card& c: h)
       {
         s += hash(c);
       }
@@ -168,6 +218,8 @@ std::string played_pile_to_str(std::vector<card> played_pile)
   s << played_pile.back();
   played_pile.pop_back();
 
+  if (played_pile.empty()) return s.str() + " ()";
+
   s << " (";
   std::reverse_copy(
     std::begin(played_pile),
@@ -175,16 +227,13 @@ std::string played_pile_to_str(std::vector<card> played_pile)
     std::ostream_iterator<card>(s, " ")
   );
   std::string t = s.str();
-  if (!t.empty())
-  {
-    t.pop_back();
-    s << t;
-  }
-  s << ")\n";
-  return s.str();
+  assert(!t.empty());
+  t.pop_back();
+  t += ")";
+  return t;
 }
 
-const std::set<card>& game::get_player_hand(
+const hand& game::get_player_hand(
   const int player_index
 ) const noexcept
 {
@@ -193,41 +242,35 @@ const std::set<card>& game::get_player_hand(
   return m_hands[player_index];
 }
 
+void game::reshuffle() noexcept
+{
+  assert(m_draw_pile.empty());
+  m_draw_pile = m_played_pile;
+  m_played_pile = { get_active_card() };
+  assert(m_draw_pile.back() == get_active_card());
+  m_draw_pile.pop_back();
+  std::shuffle(std::begin(m_draw_pile), std::end(m_draw_pile), m_rng_engine);
+  assert(is_valid());
+}
+
 std::ostream& operator<<(std::ostream& os, const game& g) noexcept
 {
   {
-    os << played_pile_to_str(g.get_played_pile());
+    os << "Played pile:\n";
+    os << played_pile_to_str(g.get_played_pile()) << '\n';
   }
   {
-    //Hands
+    os << "Player hands:\n";
     const auto n_players = g.get_n_players();
     for (int i=0; i!=n_players; ++i)
     {
       os << (i == g.get_player_index() ? '*' : ' ') << i << ": ";
-      const auto hand = g.get_player_hand(i);
-      std::copy(std::begin(hand), std::end(hand),
-        std::ostream_iterator<card>(os, "  ")
-      );
-      os << '\n';
+      os << to_str(g.get_player_hand(i)) << '\n';
     }
   }
   {
-    //Cards that are not yet draw, display cards on top first
-    auto draw_pile = g.get_draw_pile();
-
-    //Show active card
-    os << "(";
-
-    //Show other cards
-    std::stringstream s;
-    std::reverse_copy(
-      std::begin(draw_pile),
-      std::end(draw_pile),
-      std::ostream_iterator<card>(s, " ")
-    );
-    std::string t = s.str();
-    t.pop_back();
-    os << t << ")\n";
+    os << "Draw pile:\n";
+    os << draw_pile_to_str(g.get_draw_pile()) << '\n';
   }
   return os;
 }
