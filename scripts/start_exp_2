@@ -9,11 +9,10 @@
 #SBATCH --output=process.log
 
 
-
 for a in `echo "CHLRU" | grep -o .`
 do
   for b in `echo "CHLRU" | grep -o .`
   do
-    sbatch ./process_1 $a$b 10000"
+    sbatch ./process_1 $a$b 10000
   done
 done
