@@ -11,7 +11,7 @@ action::action(action_type type)
 }
 
 action::action(action_type type, const card& c)
-  : m_card{c},
+  : m_card{new card(c)},
     m_type{type}
 {
 

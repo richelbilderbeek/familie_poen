@@ -44,7 +44,7 @@ int get_winner(
       return g.player_index();
     }
     assert(!actions.empty());
-    const action a = ais[g.player_index()].pick_action(actions);
+    const action& a = ais[g.player_index()].pick_action(actions);
     if (verbose)
     {
       std::cout << "Do action: " << a << '\n';

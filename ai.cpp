@@ -9,7 +9,7 @@ ai::ai(const ai_strategy s)
 
 }
 
-action ai::pick_action(const std::vector<action>& actions)
+const action& ai::pick_action(const std::vector<action>& actions)
 {
   assert(!actions.empty());
   if (actions.size() == 1) return actions.back();

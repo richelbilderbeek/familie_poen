@@ -1,7 +1,7 @@
 #ifndef ACTION_H
 #define ACTION_H
 
-#include <optional>
+#include <memory>
 
 #include "action_type.h"
 #include "card.h"
@@ -15,13 +15,13 @@ class action
 {
 public:
   action_type get_type() const noexcept { return m_type; }
-  card get_card() const noexcept { return m_card.value(); }
+  card get_card() const noexcept { return *m_card; }
 private:
   action(const action_type type);
   action(const action_type type, const card& c);
   friend action create_draw_action() noexcept;
   friend action create_play_action(const card& c) noexcept;
-  std::optional<card> m_card;
+  std::unique_ptr<card> m_card;
   action_type m_type;
 };
 

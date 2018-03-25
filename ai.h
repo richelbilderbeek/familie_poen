@@ -11,7 +11,7 @@ public:
   ai(const ai_strategy);
 
   ///Pick one of the actions
-  action pick_action(const std::vector<action>& actions);
+  const action& pick_action(const std::vector<action>& actions);
 
 private:
 
