@@ -9,6 +9,7 @@ std::string to_str(const action_type t) noexcept
   {
     case action_type::draw: return "draw";
     case action_type::play: return "play";
+    default: assert(!"Should not get here"); return ""; //!OCLINT
   }
   assert(!"Should not get here"); return ""; //!OCLINT
 }
