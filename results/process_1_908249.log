@@ -1,0 +1,41 @@
+Player 1 playing H won 343733 times
+Player 2 playing H won 333531 times
+Player 3 playing H won 322736 times
+
+
+###############################################################################
+Peregrine Cluster
+Job 908249 for user 'p230198'
+Finished at: Sun Mar 25 17:11:30 CEST 2018
+
+Job details:
+============
+
+Name                : process_1
+User                : p230198
+Partition           : regular
+Nodes               : pg-node071
+Cores               : 1
+State               : COMPLETED
+Submit              : 2018-03-25T17:09:58
+Start               : 2018-03-25T17:10:00
+End                 : 2018-03-25T17:11:30
+Reserved walltime   : 10:00:00
+Used walltime       : 00:01:30
+Used CPU time       : 00:01:29 (efficiency: 98.96%)
+% User (Computation): 99.92%
+% System (I/O)      :  0.08%
+Mem reserved        : 10G/node
+Max Mem used        : 520.00K (pg-node071)
+Max Disk Write      : 0.00  (pg-node071)
+Max Disk Read       : 112.64K (pg-node071)
+
+
+Acknowledgements:
+=================
+
+Please see this page if you want to acknowledge Peregrine in your publications:
+
+https://redmine.hpc.rug.nl/redmine/projects/peregrine/wiki/ScientificOutput
+
+################################################################################

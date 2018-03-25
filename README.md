@@ -25,6 +25,7 @@ HL|511206|488794
 HH|508699|491301
 
 What to do as a first player:
+
  * No info: 
     * When playing L, you'll win 508434 + 511433 = 1019867
     * When playing H, you'll win 511206 + 508699 = 1019905
@@ -40,26 +41,6 @@ What to do as a first player:
  * Conclusion: even if knowing what the other plays, player
    1 will win 51% of all cases
 
-```
-Player 1 playing L won 508434 times
-Player 2 playing L won 491566 times
-```
-
-```
-Player 1 playing L won 511433 times
-Player 2 playing H won 488567 times
-```
-
-```
-Player 1 playing H won 511206 times
-Player 2 playing L won 488794 times
-```
-
-```
-Player 1 playing H won 508699 times
-Player 2 playing H won 491301 times
-```
-
 ### Three player matches
 
 Matchup|First player wins|Second player wins|Third player wins
@@ -74,14 +55,15 @@ HHL|351325|311875|336800
 HHH|343733|333531|322736
 
 What to do as a first player:
- * If no info about the others
-  * If player 1 plays L, wins will be: 343617+350884+323798+364319=1382618
-  * If player 1 plays H, wins will be: 364166+324299+351325+343733=1383523
-  * Conclusion: strategy of player 1 is irrelevant. Without info player 1 wins 34.6%
+  * If no info about the others
+    * If player 1 plays L, wins will be: 343617+350884+323798+364319=1382618
+    * If player 1 plays H, wins will be: 364166+324299+351325+343733=1383523
+    * Conclusion: strategy of player 1 is irrelevant. Without info player 1 wins 34.6%
 
 If the first players know the strategies of the other players,
 it does not matter much, but
 
-Would player 2 and 3 team up and 
+Would player 2 and 3 team up and ...
+ 
   * play two different things: player 1 should play the same as player 2.
   * play the same way: player 1 should do the opposite
