@@ -16,8 +16,11 @@ that are easy and better.
 
 Strategy|Description
 ---|---
-L|Always play the card with the lowest value
+C|Play cards that are common in hands of others (they are rare in player's hand nor in played pile) 
 H|Always play the card with the highest value
+R|Play randomly
+L|Always play the card with the lowest value
+U|Play cards that are uncommon/rare in hands of others (they are common in player's hand and in played pile) 
 
 ## Methods
 
