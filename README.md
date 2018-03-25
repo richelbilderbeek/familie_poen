@@ -60,3 +60,48 @@ Player 1 playing H won 508699 times
 Player 2 playing H won 491301 times
 ```
 
+### Three player matches
+
+Matchup|First player wins|Second player wins|Third player wins
+---|---|---
+LLL|.|.|.
+LLH|.|.|.
+LHL|.|.|.
+LHH|.|.|.
+HLL|.|.|.
+HLH|.|.|.
+HHL|.|.|.
+HHH|.|.|.
+
+Player 1 playing L won 343617 times
+Player 2 playing L won 333134 times
+Player 3 playing L won 323249 times
+
+
+Player 1 playing L won 350884 times
+Player 2 playing L won 311338 times
+Player 3 playing H won 337778 times
+
+Player 1 playing L won 323798 times
+Player 2 playing H won 350744 times
+Player 3 playing L won 325458 times
+
+Player 1 playing L won 364319 times
+Player 2 playing H won 336266 times
+Player 3 playing H won 299415 times
+
+Player 1 playing H won 364166 times
+Player 2 playing L won 336025 times
+Player 3 playing L won 299809 times
+
+Player 1 playing H won 324299 times
+Player 2 playing L won 351300 times
+Player 3 playing H won 324401 times
+
+Player 1 playing H won 351325 times
+Player 2 playing H won 311875 times
+Player 3 playing L won 336800 times
+
+Player 1 playing H won 343733 times
+Player 2 playing H won 333531 times
+Player 3 playing H won 322736 times
