@@ -1,10 +1,10 @@
-RR|51.7178|48.2822
+LC|56.3|43.7
 
 
 ###############################################################################
 Peregrine Cluster
-Job 908850 for user 'p230198'
-Finished at: Sun Mar 25 20:52:15 CEST 2018
+Job 908924 for user 'p230198'
+Finished at: Sun Mar 25 21:12:39 CEST 2018
 
 Job details:
 ============
@@ -12,21 +12,21 @@ Job details:
 Name                : process_1
 User                : p230198
 Partition           : regular
-Nodes               : pg-node034
+Nodes               : pg-node118
 Cores               : 1
 State               : COMPLETED
-Submit              : 2018-03-25T20:51:44
-Start               : 2018-03-25T20:51:46
-End                 : 2018-03-25T20:52:15
+Submit              : 2018-03-25T21:12:30
+Start               : 2018-03-25T21:12:30
+End                 : 2018-03-25T21:12:39
 Reserved walltime   : 10:00:00
-Used walltime       : 00:00:29
-Used CPU time       : 00:00:28 (efficiency: 99.41%)
-% User (Computation): 99.89%
-% System (I/O)      :  0.11%
+Used walltime       : 00:00:09
+Used CPU time       : --
+% User (Computation): 88.55%
+% System (I/O)      : 11.45%
 Mem reserved        : 10G/node
-Max Mem used        : 0.00  (pg-node034)
-Max Disk Write      : 0.00  (pg-node034)
-Max Disk Read       : 0.00  (pg-node034)
+Max Mem used        : 0.00  (pg-node118)
+Max Disk Write      : 0.00  (pg-node118)
+Max Disk Read       : 0.00  (pg-node118)
 
 
 Acknowledgements:
