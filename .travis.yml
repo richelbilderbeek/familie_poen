@@ -40,10 +40,10 @@ script:
   - make
   - ./familie_poen_solver LL 10 
   # helgrind
-  - valgrind --tool=helgrind --log-file=helgrind.log -v ./BrainweaverDesktopTest
+  - valgrind --tool=helgrind --log-file=helgrind.log -v ./familie_poen_solver LH 100
   - cat helgrind.log
   # memcheck
-  - valgrind --leak-check=full -v --show-reachable=yes --log-file=memcheck.log ./BrainweaverDesktopTest
+  - valgrind --leak-check=full -v --show-reachable=yes --log-file=memcheck.log ./familie_poen_solver LH 100
   - cat memcheck.log
   # cppcheck, be mild
   - cppcheck --quiet --error-exitcode=0 . 
