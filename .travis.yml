@@ -37,7 +37,7 @@ before_script:
 
 script: 
   - qmake familie_poen_solver.pro
-  - make
+  - make debug
   - ./familie_poen_solver LL 10 
   # helgrind
   - valgrind --tool=helgrind --log-file=helgrind.log -v ./familie_poen_solver LH 100
