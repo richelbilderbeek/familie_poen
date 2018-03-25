@@ -36,9 +36,8 @@ public:
   ///Get the draw pile
   const auto& draw_pile() const noexcept { return m_draw_pile; }
 
-  auto player_hand(
-    const int player_index
-  ) const noexcept { return m_hands.at(player_index); }
+  ///Get a player's hand
+  const std::set<card>& player_hand(const int player_index) const noexcept;
 
   ///Index of the active player
   int player_index() const noexcept { return m_player_index; }

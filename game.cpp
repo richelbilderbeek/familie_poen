@@ -186,6 +186,15 @@ std::string played_pile_to_str(std::vector<card> played_pile)
   return s.str();
 }
 
+const std::set<card>& game::player_hand(
+  const int player_index
+) const noexcept
+{
+  assert(player_index >= 0);
+  assert(player_index < static_cast<int>(m_hands.size()));
+  return m_hands[player_index];
+}
+
 std::ostream& operator<<(std::ostream& os, const game& g) noexcept
 {
   {
