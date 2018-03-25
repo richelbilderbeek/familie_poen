@@ -5,18 +5,9 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --ntasks=1
 #SBATCH --mem=1G
-#SBATCH --job-name=process
+#SBATCH --job-name=exp_2
 #SBATCH --output=process.log
 sbatch ./process_1 LL 1000000
 sbatch ./process_1 LH 1000000
 sbatch ./process_1 HL 1000000
 sbatch ./process_1 HH 1000000
-
-sbatch ./process_1 LLL 1000000
-sbatch ./process_1 LLH 1000000
-sbatch ./process_1 LHL 1000000
-sbatch ./process_1 LHH 1000000
-sbatch ./process_1 HLL 1000000
-sbatch ./process_1 HLH 1000000
-sbatch ./process_1 HHL 1000000
-sbatch ./process_1 HHH 1000000
