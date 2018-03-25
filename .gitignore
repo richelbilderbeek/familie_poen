@@ -31,3 +31,5 @@
 *.out
 *.app
 *.pro.user
+familie_poen_solver
+Makefile

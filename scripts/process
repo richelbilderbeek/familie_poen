@@ -1,0 +1,13 @@
+#!/bin/bash
+# Run all sims
+#SBATCH --time=1:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --ntasks=1
+#SBATCH --mem=1G
+#SBATCH --job-name=process
+#SBATCH --output=process.log
+sbatch ./process_1 LL 1000
+sbatch ./process_1 LH 1000
+sbatch ./process_1 HL 1000
+sbatch ./process_1 HH 1000
