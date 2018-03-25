@@ -1,0 +1,39 @@
+slurmstepd: error: *** JOB 909146 ON pg-node118 CANCELLED AT 2018-03-25T21:23:13 ***
+
+
+###############################################################################
+Peregrine Cluster
+Job 909146 for user 'p230198'
+Finished at: Sun Mar 25 21:23:15 CEST 2018
+
+Job details:
+============
+
+Name                : process_1
+User                : p230198
+Partition           : regular
+Nodes               : pg-node118
+Cores               : 1
+State               : CANCELLED,CANCELLED by 10230198
+Submit              : 2018-03-25T21:23:04
+Start               : 2018-03-25T21:23:09
+End                 : 2018-03-25T21:23:14
+Reserved walltime   : 10:00:00
+Used walltime       : 00:00:05
+Used CPU time       : --
+% User (Computation): 12.12%
+% System (I/O)      : 87.88%
+Mem reserved        : 10G/node
+Max Mem used        : 0.00  (pg-node118)
+Max Disk Write      : 0.00  (pg-node118)
+Max Disk Read       : 0.00  (pg-node118)
+
+
+Acknowledgements:
+=================
+
+Please see this page if you want to acknowledge Peregrine in your publications:
+
+https://redmine.hpc.rug.nl/redmine/projects/peregrine/wiki/ScientificOutput
+
+################################################################################

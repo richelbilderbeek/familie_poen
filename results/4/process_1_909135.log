@@ -1,0 +1,39 @@
+slurmstepd: error: *** JOB 909135 ON pg-node039 CANCELLED AT 2018-03-25T21:23:13 ***
+
+
+###############################################################################
+Peregrine Cluster
+Job 909135 for user 'p230198'
+Finished at: Sun Mar 25 21:23:15 CEST 2018
+
+Job details:
+============
+
+Name                : process_1
+User                : p230198
+Partition           : regular
+Nodes               : pg-node039
+Cores               : 1
+State               : CANCELLED,CANCELLED by 10230198
+Submit              : 2018-03-25T21:23:02
+Start               : 2018-03-25T21:23:04
+End                 : 2018-03-25T21:23:14
+Reserved walltime   : 10:00:00
+Used walltime       : 00:00:10
+Used CPU time       : --
+% User (Computation): 41.38%
+% System (I/O)      : 57.47%
+Mem reserved        : 10G/node
+Max Mem used        : 0.00  (pg-node039)
+Max Disk Write      : 0.00  (pg-node039)
+Max Disk Read       : 0.00  (pg-node039)
+
+
+Acknowledgements:
+=================
+
+Please see this page if you want to acknowledge Peregrine in your publications:
+
+https://redmine.hpc.rug.nl/redmine/projects/peregrine/wiki/ScientificOutput
+
+################################################################################

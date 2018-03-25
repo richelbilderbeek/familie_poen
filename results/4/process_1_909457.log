@@ -1,0 +1,39 @@
+LLHC|30.4877|26.1354|24.8119|18.565
+
+
+###############################################################################
+Peregrine Cluster
+Job 909457 for user 'p230198'
+Finished at: Sun Mar 25 21:27:47 CEST 2018
+
+Job details:
+============
+
+Name                : process_1
+User                : p230198
+Partition           : regular
+Nodes               : pg-node096
+Cores               : 1
+State               : COMPLETED
+Submit              : 2018-03-25T21:23:27
+Start               : 2018-03-25T21:27:11
+End                 : 2018-03-25T21:27:47
+Reserved walltime   : 10:00:00
+Used walltime       : 00:00:36
+Used CPU time       : 00:00:32 (efficiency: 91.63%)
+% User (Computation): 99.90%
+% System (I/O)      :  0.10%
+Mem reserved        : 10G/node
+Max Mem used        : 516.00K (pg-node096)
+Max Disk Write      : 0.00  (pg-node096)
+Max Disk Read       : 112.64K (pg-node096)
+
+
+Acknowledgements:
+=================
+
+Please see this page if you want to acknowledge Peregrine in your publications:
+
+https://redmine.hpc.rug.nl/redmine/projects/peregrine/wiki/ScientificOutput
+
+################################################################################

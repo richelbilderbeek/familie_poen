@@ -1,0 +1,39 @@
+LRUL|26.1304|26.0532|27.9666|19.8498
+
+
+###############################################################################
+Peregrine Cluster
+Job 909499 for user 'p230198'
+Finished at: Sun Mar 25 21:28:21 CEST 2018
+
+Job details:
+============
+
+Name                : process_1
+User                : p230198
+Partition           : regular
+Nodes               : pg-node041
+Cores               : 1
+State               : COMPLETED
+Submit              : 2018-03-25T21:23:28
+Start               : 2018-03-25T21:27:47
+End                 : 2018-03-25T21:28:21
+Reserved walltime   : 10:00:00
+Used walltime       : 00:00:34
+Used CPU time       : 00:00:33 (efficiency: 97.14%)
+% User (Computation): 99.91%
+% System (I/O)      :  0.09%
+Mem reserved        : 10G/node
+Max Mem used        : 516.00K (pg-node041)
+Max Disk Write      : 0.00  (pg-node041)
+Max Disk Read       : 112.64K (pg-node041)
+
+
+Acknowledgements:
+=================
+
+Please see this page if you want to acknowledge Peregrine in your publications:
+
+https://redmine.hpc.rug.nl/redmine/projects/peregrine/wiki/ScientificOutput
+
+################################################################################
