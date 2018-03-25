@@ -24,7 +24,6 @@ std::string to_str(const card_color c) noexcept
     case card_color::grey: return "G";
     case card_color::cyan: return "C";
     case card_color::pink: return "P";
-    default:
     case card_color::blue: return "B";
   }
 

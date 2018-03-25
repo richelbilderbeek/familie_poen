@@ -6,8 +6,8 @@
 /// Type of action, as used by \link{action}
 enum class action_type
 {
-  play, // play a card
-  draw  // draw a card from the pile
+  draw,  // draw a card from the pile
+  play // play a card
 };
 
 std::string to_str(const action_type t) noexcept;

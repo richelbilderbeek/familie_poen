@@ -45,7 +45,7 @@ std::string hash(const card& c) noexcept
     case 10: s[0] = '4'; break;
     case 20: s[0] = '5'; break;
     case 50: s[0] = '6'; break;
-    default: assert(!"Should not get here");
+    default: assert(!"Should not get here"); //!OCLINT
   }
   s[1] = to_str(c.color())[0];
   return s;

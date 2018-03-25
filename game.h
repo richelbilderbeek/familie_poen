@@ -78,6 +78,8 @@ private:
 
 std::string hash(const game& g) noexcept;
 
+std::string played_pile_to_str(std::vector<card> played_pile);
+
 std::ostream& operator<<(std::ostream&, const game& g) noexcept;
 
 #endif // GAME_H

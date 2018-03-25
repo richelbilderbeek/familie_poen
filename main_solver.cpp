@@ -21,15 +21,11 @@ int get_winner(
 
   while (1)
   {
-    if (verbose)
-    {
-      std::cout << g << '\n';
-      std::cout << "Hash: " << hash(g) << '\n';
-    }
     const auto actions = g.actions();
     const int n_actions = actions.size();
     if (verbose)
     {
+      std::cout << '\n' << g << '\n';
       for (int i=0; i!=n_actions; ++i)
       {
         std::cout << '[' << i << "] " << actions[i] << '\n';
@@ -37,10 +33,6 @@ int get_winner(
     }
     if (actions.empty())
     {
-      if (verbose)
-      {
-        std::cout << "Player " << (1 + g.player_index()) << " won\n";
-      }
       return g.player_index();
     }
     assert(!actions.empty());
@@ -50,10 +42,6 @@ int get_winner(
       std::cout << "Do action: " << a << '\n';
     }
     g.do_action(a);
-    if (verbose)
-    {
-      std::cout << '\n';
-    }
   }
 
 }
@@ -66,6 +54,31 @@ std::vector<ai_strategy> parse_strategies(const std::string& s)
     v.push_back(to_strategy(c));
   }
   return v;
+}
+
+void run_experiment(
+  const std::vector<ai_strategy>& strategies,
+  const int n_experiments
+)
+{
+  const int n = strategies.size();
+
+  std::vector<int> tally(n, 0);
+  for (int rng_seed=0; rng_seed!=n_experiments; ++rng_seed)
+  {
+    const int winner = get_winner(
+      rng_seed,
+      strategies
+    );
+    ++tally[winner];
+  }
+  for (int i=0; i!=n; ++i)
+  {
+    std::cout << "Player " << (i + 1)
+      << " playing " << strategies[i] << " won " << tally[i]
+      << " times\n"
+    ;
+  }
 }
 
 int main(int argc, char* argv[])
@@ -93,30 +106,10 @@ int main(int argc, char* argv[])
   {
     std::stoi(args[2]);
   }
-  catch (const std::invalid_argument& e)
+  catch (const std::invalid_argument&)
   {
     std::cout << "Number of experiments must be a number\n";
     return 1;
   }
-
-  const std::vector<ai_strategy> strategies = parse_strategies(args[1]);
-  const int n_experiments = std::stoi(args[2]);
-  const int n = strategies.size();
-
-  std::vector<int> tally(n, 0);
-  for (int rng_seed=0; rng_seed!=n_experiments; ++rng_seed)
-  {
-    const int winner = get_winner(
-      rng_seed,
-      strategies
-    );
-    ++tally[winner];
-  }
-  for (int i=0; i!=n; ++i)
-  {
-    std::cout << "Player " << (i + 1)
-      << " playing " << strategies[i] << " won " << tally[i]
-      << " times\n"
-    ;
-  }
+  run_experiment(parse_strategies(args[1]), std::stoi(args[2]));
 }

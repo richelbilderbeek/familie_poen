@@ -18,7 +18,6 @@ std::string to_str(const ai_strategy s) noexcept
   switch (s)
   {
     case ai_strategy::highest_value: return "H";
-    default: assert(!"Should not get here");
     case ai_strategy::lowest_value: return "L";
   }
 }

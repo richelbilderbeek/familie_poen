@@ -154,29 +154,34 @@ int game::n_cards(const int player_index) const
   return m_hands.at(player_index).size();
 }
 
+std::string played_pile_to_str(std::vector<card> played_pile)
+{
+  //Played cards, display cards on top first
+  //First card displayed is the active card, other cards are invisible
+  std::stringstream s;
+  s << played_pile.back();
+  played_pile.pop_back();
+
+  s << " (";
+  std::reverse_copy(
+    std::begin(played_pile),
+    std::end(played_pile),
+    std::ostream_iterator<card>(s, " ")
+  );
+  std::string t = s.str();
+  if (!t.empty())
+  {
+    t.pop_back();
+    s << t;
+  }
+  s << ")\n";
+  return s.str();
+}
+
 std::ostream& operator<<(std::ostream& os, const game& g) noexcept
 {
   {
-    //Played cards, display cards on top first
-    //First card displayed is the active card, other cards are invisible
-    auto played_pile = g.played_pile();
-    os << played_pile.back();
-    played_pile.pop_back();
-
-    std::stringstream s;
-    os << " (";
-    std::reverse_copy(
-      std::begin(played_pile),
-      std::end(played_pile),
-      std::ostream_iterator<card>(s, " ")
-    );
-    std::string t = s.str();
-    if (!t.empty())
-    {
-      t.pop_back();
-      os << t;
-    }
-    os << ")\n";
+    os << played_pile_to_str(g.played_pile());
   }
   {
     //Hands
