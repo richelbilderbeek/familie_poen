@@ -7,11 +7,18 @@
 #SBATCH --mem=1G
 #SBATCH --job-name=exp_3
 #SBATCH --output=process.log
-sbatch ./process_1 LLL 1000000
-sbatch ./process_1 LLH 1000000
-sbatch ./process_1 LHL 1000000
-sbatch ./process_1 LHH 1000000
-sbatch ./process_1 HLL 1000000
-sbatch ./process_1 HLH 1000000
-sbatch ./process_1 HHL 1000000
-sbatch ./process_1 HHH 1000000
+sbatch ./process_1 CRR 1000000
+sbatch ./process_1 HRR 1000000
+sbatch ./process_1 LRR 1000000
+sbatch ./process_1 RRR 1000000
+sbatch ./process_1 URR 1000000
+sbatch ./process_1 RCR 1000000
+sbatch ./process_1 RHR 1000000
+sbatch ./process_1 RLR 1000000
+sbatch ./process_1 RRR 1000000
+sbatch ./process_1 RUR 1000000
+sbatch ./process_1 RRC 1000000
+sbatch ./process_1 RRH 1000000
+sbatch ./process_1 RRL 1000000
+sbatch ./process_1 RRR 1000000
+sbatch ./process_1 RRU 1000000
