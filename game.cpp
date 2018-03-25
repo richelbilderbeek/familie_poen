@@ -11,6 +11,7 @@ game::game(
 ) : m_draw_pile{},
     m_hands(n_players),
     m_played_pile{},
+    m_player_index{0},
     m_rng_engine{rng_seed},
     m_rng_seed{rng_seed},
     m_state{game_state::running}
@@ -64,6 +65,13 @@ const card& game::active_card() const noexcept
 {
   assert(!m_played_pile.empty());
   return m_played_pile.back();
+}
+
+auto& game::active_hand() noexcept
+{
+  assert(m_player_index >= 0);
+  assert(m_player_index < static_cast<int>(m_hands.size()));
+  return m_hands[m_player_index];
 }
 
 bool game::can_play(const card& c) const noexcept

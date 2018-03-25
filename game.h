@@ -70,7 +70,7 @@ private:
   game_state m_state;
 
   ///Get the currently active hand, the hand of the current player
-  auto& active_hand() noexcept { return m_hands[m_player_index]; }
+  auto& active_hand() noexcept;
 
   ///Can the card be played?
   bool can_play(const card& c) const noexcept;
