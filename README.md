@@ -14,7 +14,7 @@ develop|[![Build Status](https://travis-ci.org/richelbilderbeek/familie_poen.svg
 Goal of this experiment is to find out if there are strategies
 that are easy and better.
 
-Strategy
+Strategy|Description
 ---|---
 L|Always play the card with the lowest value
 H|Always play the card with the highest value
