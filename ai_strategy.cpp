@@ -20,6 +20,7 @@ std::string to_str(const ai_strategy s) noexcept
     case ai_strategy::highest_value: return "H";
     case ai_strategy::lowest_value: return "L";
   }
+  assert(!"Should not get here"); return ""; //!OCLINT
 }
 
 ai_strategy to_strategy(const char c)
