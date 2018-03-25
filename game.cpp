@@ -75,7 +75,7 @@ auto& game::active_hand() noexcept
 bool game::can_play(const card& c) const noexcept
 {
   const auto top = get_active_card();
-  return c.color() == top.color() || c.value() == top.value();
+  return c.get_color() == top.get_color() || c.get_value() == top.get_value();
 }
 
 void game::do_action(const action& a)

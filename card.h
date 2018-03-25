@@ -11,8 +11,8 @@ class card
 {
 public:
   card(const int value, const card_color color);
-  card_color color() const noexcept { return m_color; }
-  int value() const noexcept { return m_value; }
+  card_color get_color() const noexcept { return m_color; }
+  int get_value() const noexcept { return m_value; }
 private:
   card_color m_color;
   int m_value;

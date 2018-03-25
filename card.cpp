@@ -37,7 +37,7 @@ std::string hash(const card& c) noexcept
 {
   // most valueable info is the value of the card
   std::string s = "  ";
-  switch (c.value())
+  switch (c.get_value())
   {
     case 1: s[0] = '1'; break;
     case 2: s[0] = '2'; break;
@@ -47,7 +47,7 @@ std::string hash(const card& c) noexcept
     case 50: s[0] = '6'; break;
     default: assert(!"Should not get here"); break; //!OCLINT
   }
-  s[1] = to_str(c.color())[0];
+  s[1] = to_str(c.get_color())[0];
   return s;
 }
 
@@ -59,21 +59,21 @@ bool is_card_value(const int value) noexcept
 
 bool operator==(const card& lhs, const card& rhs) noexcept
 {
-  return lhs.value() == rhs.value()
-    && lhs.color() == rhs.color()
+  return lhs.get_value() == rhs.get_value()
+    && lhs.get_color() == rhs.get_color()
   ;
 }
 
 bool operator<(const card& lhs, const card& rhs) noexcept
 {
   //First sort on value
-  if (lhs.value() < rhs.value()) return true;
-  if (lhs.value() > rhs.value()) return false;
-  return static_cast<int>(lhs.color()) < static_cast<int>(rhs.color());
+  if (lhs.get_value() < rhs.get_value()) return true;
+  if (lhs.get_value() > rhs.get_value()) return false;
+  return static_cast<int>(lhs.get_color()) < static_cast<int>(rhs.get_color());
 }
 
 std::ostream& operator<<(std::ostream& os, const card& c) noexcept
 {
-  os << c.color() << c.value();
+  os << c.get_color() << c.get_value();
   return os;
 }
