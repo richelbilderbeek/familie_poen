@@ -71,84 +71,82 @@ Values are: 1, 2, 5, 10, 20, 50.
 
 ### Two player matches
 
+```
+cat *.log | egrep ".*\|.*" -o
+```
+
 Matchup|First player wins|Second player wins
 ---|---|---
-LL|508434|491566
-LH|511433|488567
-HL|511206|488794
-HH|508699|491301
+CR|48.1627|51.8373
+HR|52.1526|47.8474
+LR|52.0926|47.9074
+RR|51.7178|48.2822
+UR|54.8951|45.1049
+RC|55.7963|44.2037
+RH|51.1961|48.8039
+RL|51.3625|48.6375
+RR|51.7178|48.2822
+RU|47.9368|52.0632
 
-What to do as a first player:
+What to do as any player:
 
- * No info: 
-    * When playing L, you'll win 508434 + 511433 = 1019867
-    * When playing H, you'll win 511206 + 508699 = 1019905
-    * Conlusion: it does not matter, you will win 51% of all times
- * Other plays L:
-    * When playing L (LL), you'll win 508434 
-    * When playing H (HL), you'll win 511206   
-    * Conlusion: it does not matter, you will win 51% of all times
- * Other plays H:
-    * When playing L (LH), you'll win 511433 
-    * When playing H (HH), you'll win 508699    
-    * Conlusion: it does not matter, you will win 51% of all times
- * Conclusion: even if knowing what the other plays, player
-   1 will win 51% of all cases
+ * Play cards that are uncommon in hands; 
+   that combine with as much cards on the table and in hand possible
+
+You'll win in 53.5% when playing against random opponents.
 
 ### Three player matches
 
 Matchup|First player wins|Second player wins|Third player wins
 ---|---|---|---
-LLL|343617|333134|323249
-LLH|350884|311338|337778
-LHL|323798|350744|325458
-LHH|364319|336266|299415
-HLL|364166|336025|299809
-HLH|324299|351300|324401
-HHL|351325|311875|336800
-HHH|343733|333531|322736
+CRR|31.4501|36.7911|31.7588
+HRR|35.7508|33.4775|30.7717
+LRR|35.7899|33.4253|30.7848
+RRR|35.8241|33.4079|30.768
+URR|39.7026|30.5399|29.7575
+RCR|37.0027|29.1799|33.8174
+RHR|35.7803|33.4608|30.7589
+RLR|35.7916|33.5139|30.6945
+RRR|35.8241|33.4079|30.768
+RUR|34.7961|37.2843|27.9196
+RRC|39.1564|34.3302|26.5134
+RRH|35.8205|33.5193|30.6602
+RRL|35.7225|33.4736|30.8039
+RRR|35.8241|33.4079|30.768
+RRU|32.7392|32.589|34.6718
 
 What to do as a first player:
-  * If no info about the others
-    * If player 1 plays L, wins will be: 343617+350884+323798+364319=1382618
-    * If player 1 plays H, wins will be: 364166+324299+351325+343733=1383523
-    * Conclusion: strategy of player 1 is irrelevant. Without info player 1 wins 34.6%
-
-If the first players know the strategies of the other players,
-it does not matter much, but
-
-Would player 2 and 3 team up and ...
- 
-  * play two different things: player 1 should play the same as player 2.
-  * play the same way: player 1 should do the opposite
-
+ * Play cards that are uncommon in hands; 
+   that combine with as much cards on the table and in hand possible
 
 ## Four players
 
 Matchup|1 wins|2 wins|3 wins|4 wins
 ---|---|---|---|---
-LLLL|274688|260206|242828|222278
-LLLH|284186|254673|234728|226413
-LLHL|270433|255269|248375|225923
-LLHH|285798|255114|244539|214549
-LHLL|268105|270465|245476|215954
-LHLH|279073|259974|240624|220329
-LHHL|269758|268875|235534|225833
-LHHH|286811|264299|234034|214856
-HLLL|286768|264359|234113|214760
-HLLH|270158|267900|236267|225675
-HLHL|278610|260112|241084|220194
-HLHH|268616|270213|246150|215021
-HHLL|285711|254635|244447|215207
-HHLH|271531|254129|248859|225481
-HHHL|282880|255110|235056|226954
-HHHH|275943|260243|242038|221776
+CRRR|23.5352|28.8916|25.036|22.5372
+HRRR|27.6259|26.0936|24.1867|22.0938
+LRRR|27.6349|26.1853|24.1638|22.016
+RRRR|27.8279|26.0283|24.0209|22.1229
+URRR|31.6392|23.6056|23.226|21.5292
+RCRR|28.3062|22.0182|26.6791|22.9965
+RHRR|27.867|25.9588|24.0936|22.0806
+RLRR|27.9239|26.0294|24.0375|22.0092
+RRRR|27.8279|26.0283|24.0209|22.1229
+RURR|27.272|29.984|21.6323|21.1117
+RRCR|28.7217|26.5645|20.2471|24.4667
+RRHR|27.8075|26.2833|23.8989|22.0103
+RRLR|27.8178|26.1981|23.9864|21.9977
+RRRR|27.8279|26.0283|24.0209|22.1229
+RRUR|26.8576|25.6247|27.746|19.7717
+RRRC|30.5232|26.8027|24.2814|18.3927
+RRRH|27.7941|26.2073|24.1083|21.8903
+RRRL|27.7263|26.1903|24.0932|21.9902
+RRRR|27.8279|26.0283|24.0209|22.1229
+RRRU|25.1749|25.4156|23.7917|25.6178
 
 For player 1:
-  * Without info:
-    * Playing L: 2218852
-    * Playing H: 2220217
-    * Conclusion: does not matter, will win in 27.7% of all cases 
+ * Play cards that are uncommon in hands; 
+   that combine with as much cards on the table and in hand possible
 
 It does not matter how the others team up, player 1 will always win,
 no matter which strategy.

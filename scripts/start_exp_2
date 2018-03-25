@@ -7,13 +7,13 @@
 #SBATCH --mem=1G
 #SBATCH --job-name=exp_2
 #SBATCH --output=process.log
-sbatch ./process_1 CR 1000000
-sbatch ./process_1 HR 1000000
-sbatch ./process_1 LR 1000000
-sbatch ./process_1 RR 1000000
-sbatch ./process_1 UR 1000000
-sbatch ./process_1 RC 1000000
-sbatch ./process_1 RH 1000000
-sbatch ./process_1 RL 1000000
-sbatch ./process_1 RR 1000000
-sbatch ./process_1 RU 1000000
+
+
+
+for a in `echo "CHLRU" | grep -o .`
+do
+  for b in `echo "CHLRU" | grep -o .`
+  do
+    sbatch ./process_1 $a$b 10000"
+  done
+done
