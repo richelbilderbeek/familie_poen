@@ -2,6 +2,8 @@ TEMPLATE = app
 CONFIG += console c++14
 QMAKE_CXXFLAGS += -std=c++14
 
+QMAKE_CXXFLAGS += -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic -Werror
+
 CONFIG -= app_bundle
 CONFIG -= qt
 

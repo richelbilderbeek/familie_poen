@@ -13,7 +13,7 @@ std::vector<card_color> all_colors() noexcept
     card_color::pink,
     card_color::blue
   };
-};
+}
 
 std::string to_str(const card_color c) noexcept
 {
