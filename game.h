@@ -4,7 +4,6 @@
 #include "action.h"
 #include "card.h"
 #include "hand.h"
-#include "game_state.h"
 
 #include <random>
 #include <vector>
