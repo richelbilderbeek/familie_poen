@@ -29,3 +29,30 @@ HEADERS += \
     action_type.h \
     ai.h \
     ai_strategy.h
+
+# Debug and release settings
+CONFIG += debug_and_release
+CONFIG(release, debug|release) {
+
+  DEFINES += NDEBUG
+
+  # gprof
+  QMAKE_CXXFLAGS += -pg
+  QMAKE_LFLAGS += -pg
+}
+
+CONFIG(debug, debug|release) {
+
+  # gcov
+  QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
+  LIBS += -lgcov
+
+  # helgrind, for helgrind and memcheck
+  QMAKE_LFLAGS += -pthread -Wl,--no-as-needed
+
+  # UBSAN
+  QMAKE_CXXFLAGS += -fsanitize=undefined
+  QMAKE_LFLAGS += -fsanitize=undefined
+  LIBS += -lubsan
+
+}

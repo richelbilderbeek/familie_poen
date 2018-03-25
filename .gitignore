@@ -33,3 +33,4 @@
 *.pro.user
 familie_poen_solver
 Makefile
+.qmake.stash
