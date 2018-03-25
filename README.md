@@ -72,7 +72,7 @@ Would player 2 and 3 team up and ...
 ## Four players
 
 Matchup|1 wins|2 wins|3 wins|4 wins
----|---|---|---
+---|---|---|---|---
 LLLL|274688|260206|242828|222278
 LLLH|284186|254673|234728|226413
 LLHL|270433|255269|248375|225923
