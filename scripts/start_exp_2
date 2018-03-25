@@ -7,7 +7,13 @@
 #SBATCH --mem=1G
 #SBATCH --job-name=exp_2
 #SBATCH --output=process.log
-sbatch ./process_1 LL 1000000
-sbatch ./process_1 LH 1000000
-sbatch ./process_1 HL 1000000
-sbatch ./process_1 HH 1000000
+sbatch ./process_1 CR 1000000
+sbatch ./process_1 HR 1000000
+sbatch ./process_1 LR 1000000
+sbatch ./process_1 RR 1000000
+sbatch ./process_1 UR 1000000
+sbatch ./process_1 RC 1000000
+sbatch ./process_1 RH 1000000
+sbatch ./process_1 RL 1000000
+sbatch ./process_1 RR 1000000
+sbatch ./process_1 RU 1000000
