@@ -83,8 +83,6 @@ std::string draw_pile_to_str(std::vector<card> draw_pile);
 ///Count the number of cards in the game
 int get_n_cards(const game& g) noexcept;
 
-std::string hash(const game& g) noexcept;
-
 std::string played_pile_to_str(std::vector<card> played_pile);
 
 std::ostream& operator<<(std::ostream&, const game& g) noexcept;

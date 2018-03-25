@@ -157,49 +157,6 @@ bool game::is_valid() const noexcept
   return true;
 }
 
-std::string hash(const game& g) noexcept
-{
-  std::string s;
-  {
-    //Played pile
-    //Active card is most important
-    s += hash(g.get_active_card());
-    auto played = g.get_played_pile();
-    assert(played.back() == g.get_active_card());
-    //Order of played cards is irrelevant
-    played.pop_back();
-    std::sort(std::begin(played), std::end(played));
-    for (const card& c: played)
-    {
-      s += hash(c);
-    }
-  }
-  s += "-";
-  {
-    //Player hands
-    const int n_players = g.get_n_players();
-    for (int i=0; i!=n_players; ++i)
-    {
-      const auto& h = g.get_player_hand(i);
-      for (const card& c: h)
-      {
-        s += hash(c);
-      }
-      s += "-";
-    }
-  }
-  //Draw pile order is irrelevent
-  {
-    auto draw = g.get_draw_pile();
-    std::sort(std::begin(draw), std::end(draw));
-    for (const card& c: draw)
-    {
-      s += hash(c);
-    }
-  }
-  return s;
-}
-
 int game::get_n_cards(const int player_index) const
 {
   return m_hands.at(player_index).size();

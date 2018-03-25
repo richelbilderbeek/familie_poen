@@ -24,9 +24,6 @@ std::vector<card> all_cards() noexcept;
 /// All the possible card values
 std::vector<int> all_values() noexcept;
 
-///Get a unique string for each card
-std::string hash(const card& c) noexcept;
-
 ///Is the value a valid card value?
 bool is_card_value(const int value) noexcept;
 

@@ -33,24 +33,6 @@ std::vector<int> all_values() noexcept
   return {1,2,5,10,20,50};
 }
 
-std::string hash(const card& c) noexcept
-{
-  // most valueable info is the value of the card
-  std::string s = "  ";
-  switch (c.get_value())
-  {
-    case 1: s[0] = '1'; break;
-    case 2: s[0] = '2'; break;
-    case 5: s[0] = '3'; break;
-    case 10: s[0] = '4'; break;
-    case 20: s[0] = '5'; break;
-    case 50: s[0] = '6'; break;
-    default: assert(!"Should not get here"); break; //!OCLINT
-  }
-  s[1] = to_str(c.get_color())[0];
-  return s;
-}
-
 bool is_card_value(const int value) noexcept
 {
   const std::set<int> legal_values = {1,2,5,10,20,50};
