@@ -105,10 +105,14 @@ UU|51.2759|48.7241
 
 What to do as any player:
 
- * Play cards that are uncommon in hands; 
-   that combine with as much cards on the table and in hand possible
+ * Play U
 
-You'll win in 53.5% when playing against random opponents.
+To counteract this:
+ * As player 1: play U. This is the only way to have above 50% chance to win 
+ * As player 2: play U. This is the least worst
+
+When playing U against HLR, you'll win 55% as player 1
+and 52% as player 2, in total you'll win 53.5% on average.
 
 ### Three player matches
 
