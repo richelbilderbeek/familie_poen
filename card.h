@@ -27,6 +27,8 @@ std::vector<int> all_values() noexcept;
 ///Is the value a valid card value?
 bool is_card_value(const int value) noexcept;
 
+bool operator<(const card& lhs, const card& rhs) noexcept;
+
 std::ostream& operator<<(std::ostream& os, const card& c) noexcept;
 
 #endif // CARD_H

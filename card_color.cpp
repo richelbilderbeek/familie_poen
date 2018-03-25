@@ -19,13 +19,13 @@ std::string to_str(const card_color c) noexcept
 {
   switch (c)
   {
-    case card_color::red: return "red";
-    case card_color::yellow: return "yellow";
-    case card_color::grey: return "grey";
-    case card_color::cyan: return "cyan";
-    case card_color::pink: return "pink";
+    case card_color::red: return "R";
+    case card_color::yellow: return "Y";
+    case card_color::grey: return "G";
+    case card_color::cyan: return "C";
+    case card_color::pink: return "P";
     default:
-    case card_color::blue: return "blue";
+    case card_color::blue: return "B";
   }
 
 }

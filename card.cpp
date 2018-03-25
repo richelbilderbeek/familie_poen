@@ -38,8 +38,16 @@ bool is_card_value(const int value) noexcept
   return legal_values.count(value) == 1;
 }
 
+bool operator<(const card& lhs, const card& rhs) noexcept
+{
+  //First sort on value
+  if (lhs.value() < rhs.value()) return true;
+  if (lhs.value() > rhs.value()) return false;
+  return static_cast<int>(lhs.color()) < static_cast<int>(rhs.color());
+}
+
 std::ostream& operator<<(std::ostream& os, const card& c) noexcept
 {
-  os << c.color() << " " << c.value();
+  os << c.color() << c.value();
   return os;
 }
