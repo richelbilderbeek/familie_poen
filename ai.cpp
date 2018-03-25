@@ -25,6 +25,7 @@ const action& ai::pick_action(
     case ai_strategy::random: return pick_random(actions);
     case ai_strategy::uncommon_in_hand: return pick_uncommon_in_hand(actions, played_pile, h);
   }
+  assert(!"Should not get here"); return actions.back(); //!OCLINT
 }
 
 const action& pick_common_in_hand(
