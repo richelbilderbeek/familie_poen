@@ -63,45 +63,25 @@ Player 2 playing H won 491301 times
 ### Three player matches
 
 Matchup|First player wins|Second player wins|Third player wins
----|---|---
-LLL|.|.|.
-LLH|.|.|.
-LHL|.|.|.
-LHH|.|.|.
-HLL|.|.|.
-HLH|.|.|.
-HHL|.|.|.
-HHH|.|.|.
+---|---|---|---
+LLL|343617|333134|323249
+LLH|350884|311338|337778
+LHL|323798|350744|325458
+LHH|364319|336266|299415
+HLL|364166|336025|299809
+HLH|324299|351300|324401
+HHL|351325|311875|336800
+HHH|343733|333531|322736
 
-Player 1 playing L won 343617 times
-Player 2 playing L won 333134 times
-Player 3 playing L won 323249 times
+What to do as a first player:
+ * If no info about the others
+  * If player 1 plays L, wins will be: 343617+350884+323798+364319=1382618
+  * If player 1 plays H, wins will be: 364166+324299+351325+343733=1383523
+  * Conclusion: strategy of player 1 is irrelevant. Without info player 1 wins 34.6%
 
+If the first players know the strategies of the other players,
+it does not matter much, but
 
-Player 1 playing L won 350884 times
-Player 2 playing L won 311338 times
-Player 3 playing H won 337778 times
-
-Player 1 playing L won 323798 times
-Player 2 playing H won 350744 times
-Player 3 playing L won 325458 times
-
-Player 1 playing L won 364319 times
-Player 2 playing H won 336266 times
-Player 3 playing H won 299415 times
-
-Player 1 playing H won 364166 times
-Player 2 playing L won 336025 times
-Player 3 playing L won 299809 times
-
-Player 1 playing H won 324299 times
-Player 2 playing L won 351300 times
-Player 3 playing H won 324401 times
-
-Player 1 playing H won 351325 times
-Player 2 playing H won 311875 times
-Player 3 playing L won 336800 times
-
-Player 1 playing H won 343733 times
-Player 2 playing H won 333531 times
-Player 3 playing H won 322736 times
+Would player 2 and 3 team up and 
+  * play two different things: player 1 should play the same as player 2.
+  * play the same way: player 1 should do the opposite
