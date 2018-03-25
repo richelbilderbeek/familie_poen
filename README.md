@@ -5,13 +5,64 @@ Branch|[![Travis CI logo](TravisCI.png)](https://travis-ci.org)|[![Codecov logo]
 master|[![Build Status](https://travis-ci.org/richelbilderbeek/familie_poen.svg?branch=master)](https://travis-ci.org/richelbilderbeek/familie_poen) | [![codecov.io](https://codecov.io/github/richelbilderbeek/familie_poen/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/familie_poen?branch=master)
 develop|[![Build Status](https://travis-ci.org/richelbilderbeek/familie_poen.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/familie_poen) | [![codecov.io](https://codecov.io/github/richelbilderbeek/familie_poen/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/familie_poen?branch=develop)
 
-Card game.
+`Familie Poen` is a card game.
 
 ![Cards](Cards.jpg)
 
- * Cards have values 1,2,5,10,20,50
- * Each card has 6 colors
- * Initial coins: 1 x 50, 1 x 20, 2 x 10, 2 x 5, 4 x 2, 4 x 1 = 112
+## Goal
+
+Goal of this experiment is to find out if there are strategies
+that are easy and better.
+
+Strategy
+---|---
+L|Always play the card with the lowest value
+H|Always play the card with the highest value
+
+## Methods
+
+  * Assign 2, 3, or 4 players with a fixed strategy, in all combinations
+    of strategies
+  * Play 1M games, score who wins
+
+## Results
+
+Whatever strategy, the first player has an advantage of
+51%, 34.6% and 27.7% in 2, 3 and 4 player games respectively.
+
+## Discussion
+
+There may be smarter strategies, for example, those that
+count cards.
+
+## Short manual
+
+`Familie Poen` is a 2-4 player game
+
+### Cards
+
+There are 36 cards, as there is a card for
+each combination of one of the six colors and one of the six value.
+Values are: 1, 2, 5, 10, 20, 50.
+
+![Cards](Cards.png)
+
+### Setup
+
+ * Each player gets 112 coins (1 x 50, 1 x 20, 2 x 10, 2 x 5, 4 x 2, 4 x 1)
+ * Each player get five random cards
+ * The other cards are put on drawing pile
+ * Top card of drawing pile is put open on playing pile
+
+## Playing
+
+ * The active player must place any card on the playing
+   pile that has either the same color or value. If
+   the player does so, it is the next player's turn
+ * If no card can be played, the active player must draw a card.
+   If that card can be played, it is played. Then, it is
+   the next player's turn.
+ * Whoever gets rid of all cards wins the game
 
 ## Results
 
@@ -89,3 +140,15 @@ HHLL|285711|254635|244447|215207
 HHLH|271531|254129|248859|225481
 HHHL|282880|255110|235056|226954
 HHHH|275943|260243|242038|221776
+
+For player 1:
+  * Without info:
+    * Playing L: 2218852
+    * Playing H: 2220217
+    * Conclusion: does not matter, will win in 27.7% of all cases 
+
+It does not matter how the others team up, player 1 will always win,
+no matter which strategy.
+
+
+
