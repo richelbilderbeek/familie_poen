@@ -108,8 +108,7 @@ int main(int argc, char* argv[])
           ai_strategy::lowest_value,
           ai_strategy::lowest_value,
           ai_strategy::lowest_value
-        },
-        true
+        }
       )
     };
     assert(actual >= -1);
