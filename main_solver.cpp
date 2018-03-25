@@ -21,7 +21,7 @@ int get_winner(
 
   while (1)
   {
-    const auto actions = g.actions();
+    const auto actions = g.get_actions();
     const int n_actions = actions.size();
     if (verbose)
     {
@@ -33,10 +33,10 @@ int get_winner(
     }
     if (actions.empty())
     {
-      return g.player_index();
+      return g.get_player_index();
     }
     assert(!actions.empty());
-    const action& a = ais[g.player_index()].pick_action(actions);
+    const action& a = ais[g.get_player_index()].pick_action(actions);
     if (verbose)
     {
       std::cout << "Do action: " << a << '\n';

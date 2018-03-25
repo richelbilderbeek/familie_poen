@@ -13,37 +13,37 @@
 class game
 {
 public:
-  game(const int n_players, const int rng_seed);
-
-  ///Get all valid actions
-  std::vector<action> actions() const noexcept;
-
-  ///Top card of the played pile
-  const card& active_card() const noexcept;
-
-  ///Get the played pile, card that are actively put on it
-  const auto& played_pile() const noexcept { return m_played_pile; }
+  game(const int get_n_players, const int rng_seed);
 
   ///Do an action
   void do_action(const action& a);
 
-  ///Get the number of cards a player has
-  int n_cards(const int player_index) const;
+  ///Get all valid actions
+  std::vector<action> get_actions() const noexcept;
 
-  ///Get the number of players
-  int n_players() const noexcept { return m_hands.size(); }
+  ///Top card of the played pile
+  const card& get_active_card() const noexcept;
 
   ///Get the draw pile
-  const auto& draw_pile() const noexcept { return m_draw_pile; }
+  const auto& get_draw_pile() const noexcept { return m_draw_pile; }
+
+  ///Get the number of cards a player has
+  int get_n_cards(const int get_player_index) const;
+
+  ///Get the number of players
+  int get_n_players() const noexcept { return m_hands.size(); }
+
+  ///Get the played pile, card that are actively put on it
+  const auto& get_played_pile() const noexcept { return m_played_pile; }
 
   ///Get a player's hand
-  const std::set<card>& player_hand(const int player_index) const noexcept;
+  const std::set<card>& get_player_hand(const int get_player_index) const noexcept;
 
   ///Index of the active player
-  int player_index() const noexcept { return m_player_index; }
+  int get_player_index() const noexcept { return m_player_index; }
 
   ///Get the state that the game is in now
-  game_state state() const noexcept { return m_state; }
+  //game_state get_state() const noexcept { return m_state; }
 private:
 
   ///The pile of cards to draw from
@@ -64,9 +64,6 @@ private:
 
   ///The RNG seed
   const int m_rng_seed;
-
-  ///The current game state
-  game_state m_state;
 
   ///Get the currently active hand, the hand of the current player
   auto& active_hand() noexcept;
