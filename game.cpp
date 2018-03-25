@@ -60,11 +60,6 @@ void game::do_action(const action& a)
   assert(a.get_type() == action_type::draw);
   assert(is_valid());
   assert(!m_draw_pile.empty());
-  if (m_draw_pile.empty())
-  {
-    throw std::runtime_error("Empty draw pile");
-  }
-  assert(!m_draw_pile.empty());
   const auto drawn_card = m_draw_pile.back();
   m_draw_pile.pop_back();
   get_active_hand().insert(drawn_card);

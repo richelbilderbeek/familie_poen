@@ -42,22 +42,7 @@ int get_winner(
     {
       std::cout << "Do action: " << a << '\n';
     }
-    try
-    {
-      g.do_action(a);
-    }
-    catch (const std::runtime_error& e)
-    {
-      std::cerr
-        << "Error: " << e.what() << '\n'
-        << "rng_seed: " << rng_seed << '\n'
-      ;
-      std::copy(std::begin(strategies), std::end(strategies),
-        std::ostream_iterator<ai_strategy>(std::cerr, " ")
-      );
-      std::cerr << '\n';
-      throw;
-    }
+    g.do_action(a);
   }
 
 }
