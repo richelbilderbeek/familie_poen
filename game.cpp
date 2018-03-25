@@ -42,6 +42,7 @@ std::vector<action> game::actions() const noexcept
 
   // Can play a card?
   const auto hand = m_hands.at(m_player_index);
+  if (hand.empty()) return {};
   for (const card& c: hand)
   {
     if (can_play(c))
@@ -81,7 +82,71 @@ void game::do_action(const action& a)
     return;
   }
   assert(a.get_type() == action_type::draw);
+  if (m_draw_pile.empty())
+  {
+    m_draw_pile = m_played_pile;
+    m_played_pile = { active_card() };
+    assert(m_draw_pile.back() == active_card());
+    m_draw_pile.pop_back();
+    std::shuffle(std::begin(m_draw_pile), std::end(m_draw_pile), m_rng_engine);
+  }
+  assert(!m_draw_pile.empty());
+  const auto drawn_card = m_draw_pile.back();
+  m_draw_pile.pop_back();
+  active_hand().insert(drawn_card);
 
+  if (actions().empty())
+  {
+    m_player_index = (m_player_index + 1) % n_players();
+  }
+  else
+  {
+    assert(actions().size() == 1);
+    do_action(actions().back());
+  }
+}
+
+std::string hash(const game& g) noexcept
+{
+  std::string s;
+  {
+    //Played pile
+    //Active card is most important
+    s += hash(g.active_card());
+    auto played = g.played_pile();
+    assert(played.back() == g.active_card());
+    //Order of played cards is irrelevant
+    played.pop_back();
+    std::sort(std::begin(played), std::end(played));
+    for (const card& c: played)
+    {
+      s += hash(c);
+    }
+  }
+  s += "-";
+  {
+    //Player hands
+    const int n_players = g.n_players();
+    for (int i=0; i!=n_players; ++i)
+    {
+      const auto& hand = g.player_hand(i);
+      for (const card& c: hand)
+      {
+        s += hash(c);
+      }
+      s += "-";
+    }
+  }
+  //Draw pile order is irrelevent
+  {
+    auto draw = g.draw_pile();
+    std::sort(std::begin(draw), std::end(draw));
+    for (const card& c: draw)
+    {
+      s += hash(c);
+    }
+  }
+  return s;
 }
 
 int game::n_cards(const int player_index) const

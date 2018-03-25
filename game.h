@@ -76,6 +76,8 @@ private:
   bool can_play(const card& c) const noexcept;
 };
 
+std::string hash(const game& g) noexcept;
+
 std::ostream& operator<<(std::ostream&, const game& g) noexcept;
 
 #endif // GAME_H

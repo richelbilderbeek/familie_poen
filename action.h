@@ -31,6 +31,8 @@ action create_draw_action() noexcept;
 ///Create the action to play a card
 action create_play_action(const card& c) noexcept;
 
+bool operator<(const action& lhs, const action& rhs) noexcept;
+
 std::ostream& operator<<(std::ostream& os, const action& a) noexcept;
 
 #endif // ACTION_H
