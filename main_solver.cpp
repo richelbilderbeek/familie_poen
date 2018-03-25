@@ -77,13 +77,17 @@ void run_experiment(
     );
     ++tally[winner];
   }
+  //Post-process friendly
+  std::copy(
+    std::begin(strategies),
+    std::end(strategies),
+    std::ostream_iterator<ai_strategy>(std::cout, "")
+  );
   for (int i=0; i!=n; ++i)
   {
-    std::cout << "Player " << (i + 1)
-      << " playing " << strategies[i] << " won " << tally[i]
-      << " times\n"
-    ;
+    std::cout << "|" << static_cast<double>(100.0 * tally[i] / n_experiments);
   }
+  std::cout << '\n';
 }
 
 int main(int argc, char* argv[])
