@@ -1,0 +1,318 @@
+
+Played pile:
+C5 ()
+Player hands:
+*0: G5 R10 R20 G20 P50 
+ 1: G1 Y2 R5 R50 G50 
+ 2: G10 P10 B10 C20 B50 
+ 3: C1 R2 G2 P20 Y50 
+Draw pile:
+(C2 C50 C10 B5 Y20 P2 P5 Y1 R1 B2 B1 B20 Y5 P1 Y10)
+
+[0] play G5
+Do action: play G5
+
+Played pile:
+G5 (C5)
+Player hands:
+ 0: R10 R20 G20 P50 
+*1: G1 Y2 R5 R50 G50 
+ 2: G10 P10 B10 C20 B50 
+ 3: C1 R2 G2 P20 Y50 
+Draw pile:
+(C2 C50 C10 B5 Y20 P2 P5 Y1 R1 B2 B1 B20 Y5 P1 Y10)
+
+[0] play G1
+[1] play R5
+[2] play G50
+Do action: play G1
+
+Played pile:
+G1 (G5 C5)
+Player hands:
+ 0: R10 R20 G20 P50 
+ 1: Y2 R5 R50 G50 
+*2: G10 P10 B10 C20 B50 
+ 3: C1 R2 G2 P20 Y50 
+Draw pile:
+(C2 C50 C10 B5 Y20 P2 P5 Y1 R1 B2 B1 B20 Y5 P1 Y10)
+
+[0] play G10
+Do action: play G10
+
+Played pile:
+G10 (G1 G5 C5)
+Player hands:
+ 0: R10 R20 G20 P50 
+ 1: Y2 R5 R50 G50 
+ 2: P10 B10 C20 B50 
+*3: C1 R2 G2 P20 Y50 
+Draw pile:
+(C2 C50 C10 B5 Y20 P2 P5 Y1 R1 B2 B1 B20 Y5 P1 Y10)
+
+[0] play G2
+Do action: play G2
+
+Played pile:
+G2 (G10 G1 G5 C5)
+Player hands:
+*0: R10 R20 G20 P50 
+ 1: Y2 R5 R50 G50 
+ 2: P10 B10 C20 B50 
+ 3: C1 R2 P20 Y50 
+Draw pile:
+(C2 C50 C10 B5 Y20 P2 P5 Y1 R1 B2 B1 B20 Y5 P1 Y10)
+
+[0] play G20
+Do action: play G20
+
+Played pile:
+G20 (G2 G10 G1 G5 C5)
+Player hands:
+ 0: R10 R20 P50 
+*1: Y2 R5 R50 G50 
+ 2: P10 B10 C20 B50 
+ 3: C1 R2 P20 Y50 
+Draw pile:
+(C2 C50 C10 B5 Y20 P2 P5 Y1 R1 B2 B1 B20 Y5 P1 Y10)
+
+[0] play G50
+Do action: play G50
+
+Played pile:
+G50 (G20 G2 G10 G1 G5 C5)
+Player hands:
+ 0: R10 R20 P50 
+ 1: Y2 R5 R50 
+*2: P10 B10 C20 B50 
+ 3: C1 R2 P20 Y50 
+Draw pile:
+(C2 C50 C10 B5 Y20 P2 P5 Y1 R1 B2 B1 B20 Y5 P1 Y10)
+
+[0] play B50
+Do action: play B50
+
+Played pile:
+B50 (G50 G20 G2 G10 G1 G5 C5)
+Player hands:
+ 0: R10 R20 P50 
+ 1: Y2 R5 R50 
+ 2: P10 B10 C20 
+*3: C1 R2 P20 Y50 
+Draw pile:
+(C2 C50 C10 B5 Y20 P2 P5 Y1 R1 B2 B1 B20 Y5 P1 Y10)
+
+[0] play Y50
+Do action: play Y50
+
+Played pile:
+Y50 (B50 G50 G20 G2 G10 G1 G5 C5)
+Player hands:
+*0: R10 R20 P50 
+ 1: Y2 R5 R50 
+ 2: P10 B10 C20 
+ 3: C1 R2 P20 
+Draw pile:
+(C2 C50 C10 B5 Y20 P2 P5 Y1 R1 B2 B1 B20 Y5 P1 Y10)
+
+[0] play P50
+Do action: play P50
+
+Played pile:
+P50 (Y50 B50 G50 G20 G2 G10 G1 G5 C5)
+Player hands:
+ 0: R10 R20 
+*1: Y2 R5 R50 
+ 2: P10 B10 C20 
+ 3: C1 R2 P20 
+Draw pile:
+(C2 C50 C10 B5 Y20 P2 P5 Y1 R1 B2 B1 B20 Y5 P1 Y10)
+
+[0] play R50
+Do action: play R50
+
+Played pile:
+R50 (P50 Y50 B50 G50 G20 G2 G10 G1 G5 C5)
+Player hands:
+ 0: R10 R20 
+ 1: Y2 R5 
+*2: P10 B10 C20 
+ 3: C1 R2 P20 
+Draw pile:
+(C2 C50 C10 B5 Y20 P2 P5 Y1 R1 B2 B1 B20 Y5 P1 Y10)
+
+[0] draw
+Do action: draw
+
+Played pile:
+R50 (P50 Y50 B50 G50 G20 G2 G10 G1 G5 C5)
+Player hands:
+ 0: R10 R20 
+ 1: Y2 R5 
+ 2: C2 P10 B10 C20 
+*3: C1 R2 P20 
+Draw pile:
+(C50 C10 B5 Y20 P2 P5 Y1 R1 B2 B1 B20 Y5 P1 Y10)
+
+[0] play R2
+Do action: play R2
+
+Played pile:
+R2 (R50 P50 Y50 B50 G50 G20 G2 G10 G1 G5 C5)
+Player hands:
+*0: R10 R20 
+ 1: Y2 R5 
+ 2: C2 P10 B10 C20 
+ 3: C1 P20 
+Draw pile:
+(C50 C10 B5 Y20 P2 P5 Y1 R1 B2 B1 B20 Y5 P1 Y10)
+
+[0] play R10
+[1] play R20
+Do action: play R10
+
+Played pile:
+R10 (R2 R50 P50 Y50 B50 G50 G20 G2 G10 G1 G5 C5)
+Player hands:
+ 0: R20 
+*1: Y2 R5 
+ 2: C2 P10 B10 C20 
+ 3: C1 P20 
+Draw pile:
+(C50 C10 B5 Y20 P2 P5 Y1 R1 B2 B1 B20 Y5 P1 Y10)
+
+[0] play R5
+Do action: play R5
+
+Played pile:
+R5 (R10 R2 R50 P50 Y50 B50 G50 G20 G2 G10 G1 G5 C5)
+Player hands:
+ 0: R20 
+ 1: Y2 
+*2: C2 P10 B10 C20 
+ 3: C1 P20 
+Draw pile:
+(C50 C10 B5 Y20 P2 P5 Y1 R1 B2 B1 B20 Y5 P1 Y10)
+
+[0] draw
+Do action: draw
+
+Played pile:
+R5 (R10 R2 R50 P50 Y50 B50 G50 G20 G2 G10 G1 G5 C5)
+Player hands:
+ 0: R20 
+ 1: Y2 
+ 2: C2 P10 B10 C20 C50 
+*3: C1 P20 
+Draw pile:
+(C10 B5 Y20 P2 P5 Y1 R1 B2 B1 B20 Y5 P1 Y10)
+
+[0] draw
+Do action: draw
+
+Played pile:
+R5 (R10 R2 R50 P50 Y50 B50 G50 G20 G2 G10 G1 G5 C5)
+Player hands:
+*0: R20 
+ 1: Y2 
+ 2: C2 P10 B10 C20 C50 
+ 3: C1 C10 P20 
+Draw pile:
+(B5 Y20 P2 P5 Y1 R1 B2 B1 B20 Y5 P1 Y10)
+
+[0] play R20
+Do action: play R20
+
+Played pile:
+R20 (R5 R10 R2 R50 P50 Y50 B50 G50 G20 G2 G10 G1 G5 C5)
+Player hands:
+ 0: 
+*1: Y2 
+ 2: C2 P10 B10 C20 C50 
+ 3: C1 C10 P20 
+Draw pile:
+(B5 Y20 P2 P5 Y1 R1 B2 B1 B20 Y5 P1 Y10)
+
+[0] draw
+Do action: draw
+
+Played pile:
+R20 (R5 R10 R2 R50 P50 Y50 B50 G50 G20 G2 G10 G1 G5 C5)
+Player hands:
+ 0: 
+ 1: Y2 B5 
+*2: C2 P10 B10 C20 C50 
+ 3: C1 C10 P20 
+Draw pile:
+(Y20 P2 P5 Y1 R1 B2 B1 B20 Y5 P1 Y10)
+
+[0] play C20
+Do action: play C20
+
+Played pile:
+C20 (R20 R5 R10 R2 R50 P50 Y50 B50 G50 G20 G2 G10 G1 G5 C5)
+Player hands:
+ 0: 
+ 1: Y2 B5 
+ 2: C2 P10 B10 C50 
+*3: C1 C10 P20 
+Draw pile:
+(Y20 P2 P5 Y1 R1 B2 B1 B20 Y5 P1 Y10)
+
+[0] play C1
+[1] play C10
+[2] play P20
+Do action: play C1
+
+Played pile:
+C1 (C20 R20 R5 R10 R2 R50 P50 Y50 B50 G50 G20 G2 G10 G1 G5 C5)
+Player hands:
+*0: 
+ 1: Y2 B5 
+ 2: C2 P10 B10 C50 
+ 3: C10 P20 
+Draw pile:
+(Y20 P2 P5 Y1 R1 B2 B1 B20 Y5 P1 Y10)
+
+Player 1 playing H won 282880 times
+Player 2 playing H won 255110 times
+Player 3 playing H won 235056 times
+Player 4 playing L won 226954 times
+
+
+###############################################################################
+Peregrine Cluster
+Job 908623 for user 'p230198'
+Finished at: Sun Mar 25 19:17:35 CEST 2018
+
+Job details:
+============
+
+Name                : process_1
+User                : p230198
+Partition           : regular
+Nodes               : pg-node119
+Cores               : 1
+State               : RUNNING
+Submit              : 2018-03-25T19:16:59
+Start               : 2018-03-25T19:17:02
+End                 : --
+Reserved walltime   : 10:00:00
+Used walltime       : 00:00:33
+Used CPU time       : --
+% User (Computation): --
+% System (I/O)      : --
+Mem reserved        : 10G/node
+Max Mem used        : 0.00  ()
+Max Disk Write      : 0.00  ()
+Max Disk Read       : 0.00  ()
+
+
+Acknowledgements:
+=================
+
+Please see this page if you want to acknowledge Peregrine in your publications:
+
+https://redmine.hpc.rug.nl/redmine/projects/peregrine/wiki/ScientificOutput
+
+################################################################################
