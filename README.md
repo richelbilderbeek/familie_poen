@@ -5,7 +5,7 @@ Branch|[![Travis CI logo](TravisCI.png)](https://travis-ci.org)|[![Codecov logo]
 master|[![Build Status](https://travis-ci.org/richelbilderbeek/familie_poen.svg?branch=master)](https://travis-ci.org/richelbilderbeek/familie_poen) | [![codecov.io](https://codecov.io/github/richelbilderbeek/familie_poen/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/familie_poen?branch=master)
 develop|[![Build Status](https://travis-ci.org/richelbilderbeek/familie_poen.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/familie_poen) | [![codecov.io](https://codecov.io/github/richelbilderbeek/familie_poen/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/familie_poen?branch=develop)
 
-`Familie Poen` is a card game.
+`Familie Poen` is a card game. 
 
 ![Cards](Cards.jpg)
 
@@ -885,5 +885,9 @@ For player 1:
 It does not matter how the others team up, player 1 will always win,
 no matter which strategy.
 
+## External links
+
+ * [Dutch tutorial](https://youtu.be/P4CWD06RxUw) 
+ * [Chinese/Japanese tutorial](https://youtu.be/clnthCZ3mz0)
 
 
