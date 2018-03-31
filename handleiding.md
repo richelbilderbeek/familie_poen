@@ -116,9 +116,9 @@ vragen hem te bekalenv
 ## Einde van het spel
 
 Heeft één van iullie geen geld meer of geen geld
-genoeg om z'n “schulden” aan de winnaar te beta-
-len, dan is het spel ten einde. Nu wordt de ”kas
-opgemaakt". De speler die het meeste geld heeft, is
+genoeg om z'n “schulden” aan de winnaar te betalen, 
+dan is het spel ten einde. Nu wordt de 'kas
+opgemaakt'. De speler die het meeste geld heeft, is
 de winnaal:
 
 ## Spelvarianten

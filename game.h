@@ -42,7 +42,7 @@ public:
   int get_n_cards(const int get_player_index) const;
 
   ///Get the number of players
-  int get_n_players() const noexcept { return m_hands.size(); }
+  int get_n_players() const noexcept { return m_n_players; }
 
   ///Get the number of points/credits/coins/money a player has
   int get_n_points(const int player_index) const noexcept;
@@ -56,7 +56,8 @@ public:
   ///Index of the active player
   int get_player_index() const noexcept { return m_player_index; }
 
-  ///The index of the winner. Returns -1 if there is no winner
+  ///The index of the winner of this round.
+  ///Returns -1 if there is no winner
   int get_winner_index() const noexcept;
 
   ///Is there a winner? That is, is there a player with
@@ -81,6 +82,9 @@ private:
   ///The human player is always at index 0
   std::vector<hand> m_hands;
 
+  ///The number of players
+  const int m_n_players;
+
   ///The number of points/credits/coins/money a player has
   std::vector<int> m_n_points;
 
@@ -97,7 +101,6 @@ private:
   const int m_rng_seed;
 
   ///The index of the round. First round has index 0.
-  ///At round index 'x', player 'x % n_players' starts
   int m_round_index;
 
   ///Get the currently active hand, the hand of the current player
@@ -118,17 +121,30 @@ private:
   void start_round();
 };
 
+///Collect the points/credits/money of all players
+///Points can be negative. If one of the points is
+///negative, a game (which consists of multiple rounds)
+///is over
+std::vector<int> collect_n_points(const game& g) noexcept;
+
 std::string draw_pile_to_str(std::vector<card> draw_pile);
 
 ///Assuming the game is won, the biggest loser
 ///has a hand with highest sum of values
-int get_biggest_loser_index(const game&);
+int get_most_n_points_index(const game&);
 
 ///Count the number of cards in the game
 int get_n_cards(const game& g) noexcept;
 
 ///Get the summed values of the cards per player
 std::vector<int> get_summed_values(const game& g) noexcept;
+
+///Assuming the game is won, the biggest loser
+///has a hand with highest sum of values
+int get_worst_hand_index(const game&);
+
+///Measure if there is a player that has less than zero points
+bool has_bankrupt_player(const game&);
 
 std::string played_pile_to_str(std::vector<card> played_pile);
 

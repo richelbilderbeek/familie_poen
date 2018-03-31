@@ -62,7 +62,7 @@ BOOST_AUTO_TEST_CASE(biggest_loser_starts_next_round)
   play_round(g, ais);
   assert(g.has_winner());
   assert(g.get_actions().empty());
-  const int biggest_loser_index = get_biggest_loser_index(g);
+  const int biggest_loser_index = get_worst_hand_index(g);
   g.start_next_round();
   BOOST_CHECK_EQUAL(g.get_player_index(), biggest_loser_index);
 }

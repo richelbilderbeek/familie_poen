@@ -12,6 +12,7 @@ game::game(
   const int rng_seed
 ) : m_draw_pile{},
     m_hands(n_players),
+    m_n_players{n_players},
     m_n_points(n_players, 112),
     m_played_pile{},
     m_player_index{0},
@@ -19,12 +20,29 @@ game::game(
     m_rng_seed{rng_seed},
     m_round_index{0}
 {
+  assert(m_n_players >= 2);
+  assert(m_n_players <= 4);
+
   start_round();
+
+  assert(get_n_players() == n_players);
+  assert(get_rng_seed() == rng_seed);
 }
 
 bool game::can_play(const card& c) const noexcept
 {
   return is_combination(c, get_active_card());
+}
+
+std::vector<int> collect_n_points(const game& g) noexcept
+{
+  const int n_players = g.get_n_players();
+  std::vector<int> n_points(n_players);
+  for (int i=0; i!=n_players; ++i)
+  {
+    n_points[i] = g.get_n_points(i);
+  }
+  return n_points;
 }
 
 void game::do_action(const action& a)
@@ -38,6 +56,7 @@ void game::do_action(const action& a)
 
     m_action_history.push_back(turn(get_player_index(), {a}));
     m_player_index = (m_player_index + 1) % get_n_players();
+    assert(m_player_index >= 0 && m_player_index < 4); //It's a max 4 player game
     return;
   }
   //Must draw
@@ -66,6 +85,7 @@ void game::do_action(const action& a)
     m_action_history.push_back(turn(get_player_index(), {a, new_action}));
   }
   m_player_index = (m_player_index + 1) % get_n_players();
+  assert(m_player_index >= 0 && m_player_index < 4); //It's a max 4 player game
   assert(is_valid());
 }
 
@@ -137,12 +157,12 @@ hand& game::get_active_hand() noexcept
   return m_hands[m_player_index];
 }
 
-int get_biggest_loser_index(const game& g)
+int get_most_n_points_index(const game& g)
 {
-  const auto values = get_summed_values(g);
+  const auto points = collect_n_points(g);
   return std::distance(
-    std::begin(values),
-    std::max_element(std::begin(values), std::end(values))
+    std::begin(points),
+    std::max_element(std::begin(points), std::end(points))
   );
 }
 
@@ -189,14 +209,35 @@ int game::get_winner_index() const noexcept
   return -1;
 }
 
+int get_worst_hand_index(const game& g)
+{
+  const auto values = get_summed_values(g);
+  return std::distance(
+    std::begin(values),
+    std::max_element(std::begin(values), std::end(values))
+  );
+}
+
 bool game::has_winner() const noexcept
 {
   return get_winner_index() != -1;
 }
 
+bool has_bankrupt_player(const game& g)
+{
+  const auto points = collect_n_points(g);
+  return std::count_if(
+    std::begin(points),
+    std::end(points),
+    [](const int i) { return i <= 0; }
+  );
+}
+
 bool game::is_valid() const noexcept
 {
   if (::get_n_cards(*this) != 36) return false;
+  if (m_player_index < 0) return false;
+  if (m_player_index > m_n_players) return false;
   return true;
 }
 
@@ -252,7 +293,7 @@ void game::start_next_round()
 {
   assert(has_winner());
   const int winner_index = get_winner_index();
-  const int biggest_loser_index = get_biggest_loser_index(*this);
+  const int biggest_loser_index = get_worst_hand_index(*this);
   const int n_players = get_n_players();
   for (int i=0; i!=n_players; ++i)
   {

@@ -16,9 +16,18 @@ int get_winner(
   game g(n_players, rng_seed);
   std::vector<ai> ais = create_ais(strategies);
 
-  while (1)
+  for (int round = 0; ; ++round)
   {
+    if (verbose)
+    {
+      std::cout << "Round " << round << '\n';
+    }
     play_round(g, ais, verbose);
+    if (has_bankrupt_player(g))
+    {
+      return get_most_n_points_index(g);
+    }
+    g.start_next_round();
   }
 }
 

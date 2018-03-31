@@ -36,6 +36,7 @@ std::vector<int> tally_winners(
 
 int main(int argc, char* argv[])
 {
+  /*
   {
     const int actual{
       get_winner(
@@ -50,6 +51,7 @@ int main(int argc, char* argv[])
     };
     assert(actual >= -1);
   }
+  */
   std::vector<std::string> args(argv, argv + argc);
   if (args.size() != 3)
   {
@@ -79,6 +81,16 @@ int main(int argc, char* argv[])
     return 1;
   }
   const auto strategies = parse_strategies(args[1]);
+  if (strategies.size() < 2)
+  {
+    std::cout << "Need at least 2 strategies\n";
+    return 1;
+  }
+  if (strategies.size() > 4)
+  {
+    std::cout << "Need at most 4 strategies\n";
+    return 1;
+  }
   const int n_experiments = std::stoi(args[2]);
   const auto tally = tally_winners(
     strategies,
