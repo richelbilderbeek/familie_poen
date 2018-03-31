@@ -4,7 +4,7 @@
 #include <iterator>
 #include <sstream>
 
-int sum_points(const hand& h) noexcept
+int sum_values(const hand& h) noexcept
 {
   return std::accumulate(
     std::begin(h),

@@ -137,6 +137,15 @@ hand& game::get_active_hand() noexcept
   return m_hands[m_player_index];
 }
 
+int get_biggest_loser_index(const game& g)
+{
+  const auto values = get_summed_values(g);
+  return std::distance(
+    std::begin(values),
+    std::max_element(std::begin(values), std::end(values))
+  );
+}
+
 int get_n_cards(const game& g) noexcept
 {
   int n_cards = 0;
@@ -156,6 +165,17 @@ int game::get_n_points(
   assert(player_index >= 0);
   assert(player_index < static_cast<int>(m_n_points.size()));
   return m_n_points[player_index];
+}
+
+std::vector<int> get_summed_values(const game& g) noexcept
+{
+  const int n_players = g.get_n_players();
+  std::vector<int> v(n_players);
+  for (int i=0; i!=n_players; ++i)
+  {
+    v[i] = sum_values(g.get_player_hand(i));
+  }
+  return v;
 }
 
 int game::get_winner_index() const noexcept
@@ -232,21 +252,24 @@ void game::start_next_round()
 {
   assert(has_winner());
   const int winner_index = get_winner_index();
+  const int biggest_loser_index = get_biggest_loser_index(*this);
   const int n_players = get_n_players();
   for (int i=0; i!=n_players; ++i)
   {
-    const int n_points = sum_points(m_hands[i]);
+    const int n_points = sum_values(m_hands[i]);
     m_n_points[i] -= n_points;
     m_n_points[winner_index] += n_points;
   }
   ++m_round_index;
+  m_player_index = biggest_loser_index;
   start_round();
   assert(!has_winner());
 }
 
 void game::start_round()
 {
-  ++m_round_index;
+  //m_round_index and m_active_player_index are already set
+
   const int n_players = get_n_players();
   assert(n_players > 0);
 

@@ -120,8 +120,15 @@ private:
 
 std::string draw_pile_to_str(std::vector<card> draw_pile);
 
+///Assuming the game is won, the biggest loser
+///has a hand with highest sum of values
+int get_biggest_loser_index(const game&);
+
 ///Count the number of cards in the game
 int get_n_cards(const game& g) noexcept;
+
+///Get the summed values of the cards per player
+std::vector<int> get_summed_values(const game& g) noexcept;
 
 std::string played_pile_to_str(std::vector<card> played_pile);
 

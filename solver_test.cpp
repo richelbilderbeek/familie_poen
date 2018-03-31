@@ -46,3 +46,23 @@ BOOST_AUTO_TEST_CASE(winner_receives_points)
   g.start_next_round();
   BOOST_CHECK_GT(g.get_n_points(winner_index), 112);
 }
+
+BOOST_AUTO_TEST_CASE(biggest_loser_starts_next_round)
+{
+  auto ais = create_ais(
+    {
+      ai_strategy::highest_value,
+      ai_strategy::highest_value,
+      ai_strategy::highest_value,
+      ai_strategy::highest_value
+    }
+  );
+  const int rng_seed{314};
+  game g(ais.size(), rng_seed);
+  play_round(g, ais);
+  assert(g.has_winner());
+  assert(g.get_actions().empty());
+  const int biggest_loser_index = get_biggest_loser_index(g);
+  g.start_next_round();
+  BOOST_CHECK_EQUAL(g.get_player_index(), biggest_loser_index);
+}

@@ -53,65 +53,63 @@ Nu kan he! spel echt beginnen! De jongste van jullie
 mag de eerste ronde beginnen. Hij moet één van z‘n
 kaarten afleggen, die past bi] de kaart die omge-
 draaid Iigt. Een kaart mag pas warden afgelegd, als
-aan één van de Volgende Voorwaarden is voldaan.
+aan één van de volgende voorwaarden is voldaan.
 
-Deze kaarl meet 01
+Deze kaart moet of:
 
-a) deze‘fde waarde hebben als de omgedraaide
+a) dezelfde waarde hebben als de omgedraaide
 kaart
 
 of
-b) daelfde kleur hebben.
+
+b) dezelfde kleur hebben.
 
 Voorbeeld: op een blauwe kaart met waarde 50 mag
-éf sen andere kaarl met waarde 50 van een willekeu-
-rigs kleur 6f een b‘auwe kaart met een wil‘ekeurige
+of een andere kaart met waarde 50 van een 
+willekeurige kleur of een blauwe kaart met een willekeurige
 waarde worden gelegd.
 
-Heeft d5 spelev geen passende kaart. dan most
-hij een kaart van de slapel pakken. Als deze kaart
-toevallig past, dan mag hij daze meteen uitspelen en
+Heeft de speler geen passende kaart, dan moet
+hij een kaart van de stapel pakken. Als deze kaart
+toevallig past, dan *mag* hij deze meteen uitspelen en
 neerleggen. Past de kaart van de stapel niet, dan
-moet hij daze vasthouden, Nu is de vovgende speler
+moet hij deze vasthouden, Nu is de volgende speler
 aan de beurt.
 
-20 word! er ronde na ronde verder gespeeld, en jullie
-proberen allemaal zo snel mogelijk ie kaarten kwijt te
-raken. De speler die z‘n één na laatste kaart neer—
-Iegt, moat dil aangeven door het waord “puen” te
-roepen. Als iemand dat vergeel, moat hij een kaart
-van de stapel pakken, die hi] niet meteen mag uit-
-spelen. Dus let upl
+Zo wordt er ronde na ronde verder gespeeld, en jullie
+proberen allemaal zo snel mogelijk je kaarten kwijt te
+raken. De speler die z'n één na laatste kaart 
+neerlegt, moet dit aangeven door het woord 'poen' te
+roepen. Als iemand dat vergeet, moet hij een kaart
+van de stapel pakken, die hij niet meteen mag uit-
+spelen. Dus let op!
 
-De speler die z'n laatste kaart neer‘egt roept “famine
-Poen" en be'eindigt daarmee deze runde. De winnaar
+De speler die z'n laatste kaart neerlegt roept 'Familie
+Poen' en beeindigt daarmee deze ronde. De winnaar
 van deze ronde mag de andere spelers nu vragen
 hem te betalen.
 
-### Airekenen met de speelmunten
+### Afrekenen met de speelmunten
 
-Nu wordt net echt “kassa”. want iedere speler moet
-de winnaar de Waarde van de kaarten die hij nog in
-z'n hand heeft in munten uxtbetalen.
+Nu wordt het echt “kassa”. want iedere speler moet
+de winnaar de waarde van de kaarten die hij nog in
+z'n hand heeft in munten uitbetalen.
 
-Wwe b.v. aan he‘ einde van een ronde een 50—, een
-20- en een 5-kaart heeft, moet de totale waarde van
-75 punten in munten aan de winnaar betalen.
-
-(b‘v.1x50,1x20en1x5)
+Wie bijvoorbeeld aan het einde van een ronde een 50, 
+een 20 en een 5 kaart heeft, moet de totale waarde 
+van (50 + 20 + 5 = ) 75 punten in munten aan de winnaar betalen.
 
 Wie geen gepaste munten heeft, kan natuurlijk ook
-rnet andere muntwaarden betalen of wisselen.
+met andere muntwaarden betalen of wisselen.
 
-Nieuw spel, nieuw geluk
-Hebben de spe‘ers de winnaar betaald, dan warden
-alle kaanen weer geschud en opnieuw uitgedeeld‘
+Nieuw spel, nieuw geluk.
+Hebben de spelers de winnaar betaald, dan worden
+alle kaarten weer geschud en opnieuw uitgedeeld.
 
-De bovenste kaan van de stapel worm weer omgev
-draaid. Nu begim de speler. die as vorige londe he‘
-
-
-meeste moest betaien. Misschien heeft hij deze
+De bovenste kaart van de stapel wordt weer 
+omgedraaid. Nu begint de speler, die 
+in de vorige ronde het meeste moest betalen. 
+Misschien heeft hij deze
 ronde meer geluk en mag hij de andere spelers
 vragen hem te bekalenv
 

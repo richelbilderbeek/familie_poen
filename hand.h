@@ -9,7 +9,7 @@
 using hand = std::set<card>;
 
 ///Sum the points of a hand
-int sum_points(const hand& h) noexcept;
+int sum_values(const hand& h) noexcept;
 
 std::string to_str(const hand& h) noexcept;
 
