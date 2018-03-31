@@ -106,13 +106,11 @@ UU|50.4096|49.5904
 What to do as any player:
 
  * Play H
+ * Being the first to start is a small advantage
 
 To counteract this:
- * As player 1: play U. This is the only way to have above 50% chance to win 
- * As player 2: play U. This is the least worst
 
-When playing U against HLR, you'll win 55% as player 1
-and 52% as player 2, in total you'll win 53.5% on average.
+ * Play H
 
 ### Three player matches
 
@@ -244,11 +242,14 @@ UUL|40.2277|36.6498|23.1225
 UUR|38.1717|33.1758|28.6525
 UUU|34.2422|33.4814|32.2764
 
+What to do as any player:
 
+ * Play H
+ * Being the first to start is a small advantage
 
-What to do as a first player:
- * Play cards that are uncommon in hands; 
-   that combine with as much cards on the table and in hand possible
+To counteract this:
+
+ * Play H
 
 ## Four players
 
@@ -880,13 +881,14 @@ UUUL|30.0388|27.2938|25.6623|17.0051
 UUUR|29.4459|25.6668|24.2234|20.6639
 UUUU|26.2283|25.6173|24.5989|23.5555
 
+What to do as any player:
 
-For player 1:
- * Play cards that are uncommon in hands; 
-   that combine with as much cards on the table and in hand possible
+ * Play H
+ * Being the first to start is a small advantage
 
-It does not matter how the others team up, player 1 will always win,
-no matter which strategy.
+To counteract this:
+
+ * Play H
 
 ## External links
 
