@@ -10,6 +10,7 @@ game::game(
   const int rng_seed
 ) : m_draw_pile{},
     m_hands(n_players),
+    m_n_points(n_players, 112),
     m_played_pile{},
     m_player_index{0},
     m_rng_engine{rng_seed},
@@ -155,6 +156,15 @@ int get_n_cards(const game& g) noexcept
   }
   n_cards += g.get_played_pile().size() + g.get_draw_pile().size();
   return n_cards;
+}
+
+int game::get_n_points(
+  const int player_index
+) const noexcept
+{
+  assert(player_index >= 0);
+  assert(player_index < static_cast<int>(m_n_points.size()));
+  return m_n_points[player_index];
 }
 
 bool game::is_valid() const noexcept

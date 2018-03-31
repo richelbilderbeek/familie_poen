@@ -38,6 +38,9 @@ public:
   ///Get the number of players
   int get_n_players() const noexcept { return m_hands.size(); }
 
+  ///Get the number of points/credits/coins/money a player has
+  int get_n_points(const int player_index) const noexcept;
+
   ///Get the played pile, card that are actively put on it
   const auto& get_played_pile() const noexcept { return m_played_pile; }
 
@@ -55,6 +58,9 @@ private:
   ///The cards in the hands of the players.
   ///The human player is always at index 0
   std::vector<hand> m_hands;
+
+  ///The number of points/credits/coins/money a player has
+  std::vector<int> m_n_points;
 
   ///The cards that are played, the top card is the active card
   std::vector<card> m_played_pile;
