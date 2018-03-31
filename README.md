@@ -30,8 +30,9 @@ U|Play cards that are uncommon/rare in hands of others (they are common in playe
 
 ## Results
 
-Whatever strategy, the first player has an advantage of
-51%, 34.6% and 27.7% in 2, 3 and 4 player games respectively.
+Always play the card with the highest value. The first player has an advantage
+of three percent in a three player game 
+and an advantage of four percent in a four player game.
 
 ## Discussion
 
