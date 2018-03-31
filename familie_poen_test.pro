@@ -6,10 +6,14 @@ QMAKE_CXXFLAGS += -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic -Werror
 CONFIG -= app_bundle
 CONFIG -= qt
 
-include(familie_poen_solver.pri)
+include(familie_poen.pri)
+include(familie_poen_test.pri)
 
 SOURCES += \
-    main_solver.cpp
+    main_test.cpp
+
+# Boost.Test
+LIBS += -lboost_unit_test_framework
 
 # Debug and release settings
 CONFIG += debug_and_release

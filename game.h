@@ -29,6 +29,9 @@ public:
   ///Get the draw pile
   const auto& get_draw_pile() const noexcept { return m_draw_pile; }
 
+  ///Get the RNG seed
+  int get_rng_seed() const noexcept { return m_rng_seed; }
+
   ///Get the number of cards a player has
   int get_n_cards(const int get_player_index) const;
 

@@ -36,9 +36,17 @@ before_script:
   - sleep 3 # give xvfb some time to start
 
 script: 
+  # Unit tests 
+  - qmake familie_poen_test.pro
+  - make debug
+  - ./familie_poen_test
+  # Solver
   - qmake familie_poen_solver.pro
   - make debug
   - ./familie_poen_solver LL 10 
+  # Console version (only compile)
+  - qmake familie_poen_console.pro
+  - make debug
   # helgrind
   - valgrind --tool=helgrind --log-file=helgrind.log -v ./familie_poen_solver LH 100
   - cat helgrind.log

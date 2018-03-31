@@ -9,7 +9,7 @@
 class console_game
 {
 public:
-  console_game(const int n_players);
+  console_game(const int n_players, const int rng_seed);
   void execute();
 private:
   game m_game;
