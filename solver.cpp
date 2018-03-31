@@ -14,13 +14,17 @@ int get_winner(
 {
   const int n_players = strategies.size();
   game g(n_players, rng_seed);
-  std::vector<ai> ais;
-  for (int i=0; i!=n_players; ++i)
-  {
-    ais.push_back(ai(strategies[i]));
-  }
+  std::vector<ai> ais = create_ais(strategies);
 
   while (1)
+  {
+    play_round(g, ais, verbose);
+  }
+}
+
+void play_round(game& g, std::vector<ai>& ais, const bool verbose)
+{
+  while (!g.has_winner())
   {
     const int active_player_index{g.get_player_index()};
     const auto actions = g.get_actions();
@@ -32,10 +36,6 @@ int get_winner(
       {
         std::cout << '[' << i << "] " << actions[i] << '\n';
       }
-    }
-    if (actions.empty())
-    {
-      return active_player_index;
     }
     assert(!actions.empty());
     const action& a = ais[active_player_index].pick_action(
@@ -50,4 +50,3 @@ int get_winner(
     g.do_action(a);
   }
 }
-

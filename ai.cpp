@@ -9,6 +9,18 @@ ai::ai(const ai_strategy s)
 
 }
 
+std::vector<ai> create_ais(const std::vector<ai_strategy>& strategies) noexcept
+{
+  std::vector<ai> ais;
+  const int n = strategies.size();
+  ais.reserve(strategies.size());
+  for (int i=0; i!=n; ++i)
+  {
+    ais.push_back(ai(strategies[i]));
+  }
+  return ais;
+}
+
 const action& ai::pick_action(
   const std::vector<action>& actions,
   const std::vector<card>& played_pile,

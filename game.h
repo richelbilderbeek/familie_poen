@@ -21,7 +21,9 @@ public:
   ///Get the history of all actions
   const auto& get_action_history() const noexcept { return m_action_history; }
 
-  ///Get all valid actions
+  ///Get all valid actions.
+  ///Will return no actions if there is a winner.
+  ///If there is a winner, call 'start_next_round'
   std::vector<action> get_actions() const noexcept;
 
   ///Top card of the played pile
@@ -54,6 +56,17 @@ public:
   ///Index of the active player
   int get_player_index() const noexcept { return m_player_index; }
 
+  ///The index of the winner. Returns -1 if there is no winner
+  int get_winner_index() const noexcept;
+
+  ///Is there a winner? That is, is there a player with
+  ///zero cards in hand?
+  bool has_winner() const noexcept;
+
+  ///If there is a winner, start the next round
+  ///Will throw if there is no winner yet
+  void start_next_round();
+
 private:
 
   ///History of all actions
@@ -83,6 +96,10 @@ private:
   ///The RNG seed
   const int m_rng_seed;
 
+  ///The index of the round. First round has index 0.
+  ///At round index 'x', player 'x % n_players' starts
+  int m_round_index;
+
   ///Get the currently active hand, the hand of the current player
   hand& get_active_hand() noexcept;
 
@@ -96,6 +113,9 @@ private:
   /// If the draw pile is empty, shuffle to played card
   /// in the draw pile
   void reshuffle() noexcept;
+
+  /// Deal all the cards, called after start_next_round
+  void start_round();
 };
 
 std::string draw_pile_to_str(std::vector<card> draw_pile);

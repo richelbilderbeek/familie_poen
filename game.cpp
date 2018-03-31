@@ -16,32 +16,10 @@ game::game(
     m_played_pile{},
     m_player_index{0},
     m_rng_engine{rng_seed},
-    m_rng_seed{rng_seed}
+    m_rng_seed{rng_seed},
+    m_round_index{0}
 {
-  auto cards = all_cards();
-  std::shuffle(std::begin(cards), std::end(cards), m_rng_engine);
-  for (int player_index = 0; player_index!=n_players; ++player_index)
-  {
-    for (int card_index = 0; card_index!=5; ++card_index)
-    {
-      m_hands[player_index].insert(cards.back());
-      cards.pop_back();
-    }
-  }
-  m_draw_pile = cards;
-  //Take first card from draw pile
-  m_played_pile.push_back(m_draw_pile.back());
-  m_draw_pile.pop_back();
-
-  assert(this->get_n_players() == n_players);
-  //All players should have five card
-  #ifndef NDEBUG
-  for (const auto& h: m_hands) { assert(h.size() == 5); }
-  #endif
-  assert(m_draw_pile.size() > 2);
-  assert(m_played_pile.size() == 1); //Only the active card
-  assert(is_valid());
-  assert(!m_draw_pile.empty());
+  start_round();
 }
 
 bool game::can_play(const card& c) const noexcept
@@ -114,6 +92,11 @@ std::vector<action> game::get_actions() const noexcept
 {
   std::vector<action> actions;
 
+  if (has_winner())
+  {
+    return actions;
+  }
+
   // Can play a card?
   const auto h = m_hands.at(m_player_index);
   if (h.empty()) return {};
@@ -175,6 +158,22 @@ int game::get_n_points(
   return m_n_points[player_index];
 }
 
+int game::get_winner_index() const noexcept
+{
+  int winner_index = 0;
+  for (const auto& h: m_hands)
+  {
+    if (h.empty()) return winner_index;
+    ++winner_index;
+  }
+  return -1;
+}
+
+bool game::has_winner() const noexcept
+{
+  return get_winner_index() != -1;
+}
+
 bool game::is_valid() const noexcept
 {
   if (::get_n_cards(*this) != 36) return false;
@@ -227,6 +226,61 @@ void game::reshuffle() noexcept
   m_draw_pile.pop_back();
   std::shuffle(std::begin(m_draw_pile), std::end(m_draw_pile), m_rng_engine);
   assert(is_valid());
+}
+
+void game::start_next_round()
+{
+  assert(has_winner());
+  const int winner_index = get_winner_index();
+  const int n_players = get_n_players();
+  for (int i=0; i!=n_players; ++i)
+  {
+    const int n_points = sum_points(m_hands[i]);
+    m_n_points[i] -= n_points;
+    m_n_points[winner_index] += n_points;
+  }
+  ++m_round_index;
+  start_round();
+  assert(!has_winner());
+}
+
+void game::start_round()
+{
+  ++m_round_index;
+  const int n_players = get_n_players();
+  assert(n_players > 0);
+
+  //Clear all
+  m_hands = std::vector<hand>(n_players);
+  m_draw_pile.clear();
+  m_played_pile.clear();
+  m_draw_pile.clear();
+
+  //Deal cards
+  auto cards = all_cards();
+  std::shuffle(std::begin(cards), std::end(cards), m_rng_engine);
+  for (int player_index = 0; player_index!=n_players; ++player_index)
+  {
+    for (int card_index = 0; card_index!=5; ++card_index)
+    {
+      m_hands[player_index].insert(cards.back());
+      cards.pop_back();
+    }
+  }
+  m_draw_pile = cards;
+  //Take first card from draw pile
+  m_played_pile.push_back(m_draw_pile.back());
+  m_draw_pile.pop_back();
+
+  assert(this->get_n_players() == n_players);
+  //All players should have five card
+  #ifndef NDEBUG
+  for (const auto& h: m_hands) { assert(h.size() == 5); }
+  #endif
+  assert(m_draw_pile.size() > 2);
+  assert(m_played_pile.size() == 1); //Only the active card
+  assert(is_valid());
+  assert(!m_draw_pile.empty());
 }
 
 std::ostream& operator<<(std::ostream& os, const game& g) noexcept

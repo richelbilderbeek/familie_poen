@@ -29,6 +29,8 @@ const action& pick_common_in_hand(
   const hand& hand
 ) noexcept;
 
+std::vector<ai> create_ais(const std::vector<ai_strategy>& strategies) noexcept;
+
 const action& pick_lowest(const std::vector<action>& actions) noexcept;
 const action& pick_highest(const std::vector<action>& actions) noexcept;
 const action& pick_random(const std::vector<action>& actions) noexcept;
