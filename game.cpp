@@ -52,22 +52,23 @@ bool game::can_play(const card& c) const noexcept
 void game::do_action(const action& a)
 {
   assert(is_valid());
+  //Play
   if (a.get_type() == action_type::play)
   {
-    m_action_history.push_back(std::make_pair(get_player_index(), a));
     m_played_pile.push_back(a.get_card());
     get_active_hand().erase(a.get_card());
+
+    m_action_history.push_back(turn(get_player_index(), {a}));
     m_player_index = (m_player_index + 1) % get_n_players();
     return;
   }
+  //Must draw
   assert(a.get_type() == action_type::draw);
-  m_action_history.push_back(std::make_pair(get_player_index(), a));
   assert(is_valid());
   assert(!m_draw_pile.empty());
   const auto drawn_card = m_draw_pile.back();
   m_draw_pile.pop_back();
   get_active_hand().insert(drawn_card);
-
   if (m_draw_pile.empty())
   {
     reshuffle();
@@ -78,12 +79,15 @@ void game::do_action(const action& a)
   const auto& new_action = new_actions.back();
   if (new_action.get_type() == action_type::draw)
   {
-    m_player_index = (m_player_index + 1) % get_n_players();
+    m_action_history.push_back(turn(get_player_index(), {a}));
   }
   else
   {
-    do_action(new_action);
+    m_played_pile.push_back(new_action.get_card());
+    get_active_hand().erase(new_action.get_card());
+    m_action_history.push_back(turn(get_player_index(), {a, new_action}));
   }
+  m_player_index = (m_player_index + 1) % get_n_players();
   assert(is_valid());
 }
 

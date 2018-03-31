@@ -39,7 +39,10 @@ BOOST_AUTO_TEST_CASE(keep_action_history)
   const int n_players{2};
   const int rng_seed{314};
   game g(n_players, rng_seed);
-  BOOST_CHECK_EQUAL(g.get_action_history().size(), 0);
-  g.do_action(g.get_actions().back());
-  BOOST_CHECK_EQUAL(g.get_action_history().size(), 1);
+  for (int turn_index=0; turn_index!=1000; ++turn_index)
+  {
+    BOOST_CHECK_EQUAL(g.get_action_history().size(), turn_index);
+    if (g.get_actions().empty()) break;
+    g.do_action(g.get_actions().back());
+  }
 }

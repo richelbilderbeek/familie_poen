@@ -4,10 +4,10 @@
 #include "action.h"
 #include "card.h"
 #include "hand.h"
+#include "turn.h"
 
 #include <random>
 #include <vector>
-#include <utility>
 
 /// Game logic
 class game
@@ -59,7 +59,7 @@ private:
   ///History of all actions
   ///int: player index
   ///action: the action done
-  std::vector<std::pair<int, action>> m_action_history;
+  std::vector<turn> m_action_history;
 
   ///The pile of cards to draw from
   std::vector<card> m_draw_pile;

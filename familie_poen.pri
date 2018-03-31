@@ -8,7 +8,8 @@ SOURCES += \
     hand.cpp \
     ai.cpp \
     ai_strategy.cpp \
-    solver.cpp
+    solver.cpp \
+    $$PWD/turn.cpp
 
 HEADERS += \
     game.h \
@@ -19,4 +20,5 @@ HEADERS += \
     hand.h \
     ai.h \
     ai_strategy.h \
-    solver.h
+    solver.h \
+    $$PWD/turn.h
