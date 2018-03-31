@@ -5,6 +5,8 @@
 #include <iostream>
 #include <iterator>
 #include <sstream>
+#include <utility>
+
 game::game(
   const int n_players,
   const int rng_seed
@@ -52,12 +54,14 @@ void game::do_action(const action& a)
   assert(is_valid());
   if (a.get_type() == action_type::play)
   {
+    m_action_history.push_back(std::make_pair(get_player_index(), a));
     m_played_pile.push_back(a.get_card());
     get_active_hand().erase(a.get_card());
     m_player_index = (m_player_index + 1) % get_n_players();
     return;
   }
   assert(a.get_type() == action_type::draw);
+  m_action_history.push_back(std::make_pair(get_player_index(), a));
   assert(is_valid());
   assert(!m_draw_pile.empty());
   const auto drawn_card = m_draw_pile.back();
@@ -122,7 +126,7 @@ std::vector<action> game::get_actions() const noexcept
   {
     actions.push_back(create_draw_action());
   }
-
+  assert(!actions.empty());
   return actions;
 }
 

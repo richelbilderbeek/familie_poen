@@ -11,7 +11,7 @@ action::action(action_type type)
 }
 
 action::action(action_type type, const card& c)
-  : m_card{new card(c)},
+  : m_card(1, c),
     m_type{type}
 {
 
@@ -25,6 +25,12 @@ action create_draw_action() noexcept
 action create_play_action(const card& c) noexcept
 {
   return action(action_type::play, c);
+}
+
+card action::get_card() const noexcept
+{
+  assert(!m_card.empty());
+  return m_card[0];
 }
 
 bool operator<(const action& lhs, const action& rhs) noexcept

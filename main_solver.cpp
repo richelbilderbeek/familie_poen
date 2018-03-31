@@ -1,55 +1,11 @@
 #include "game.h"
 
 #include "ai.h"
+#include "solver.h"
 
 #include <cassert>
 #include <iostream>
 #include <iterator>
-
-int get_winner(
-  const int rng_seed,
-  const std::vector<ai_strategy>& strategies,
-  const bool verbose = false
-)
-{
-  const int n_players = strategies.size();
-  game g(n_players, rng_seed);
-  std::vector<ai> ais;
-  for (int i=0; i!=n_players; ++i)
-  {
-    ais.push_back(ai(strategies[i]));
-  }
-
-  while (1)
-  {
-    const auto actions = g.get_actions();
-    const int n_actions = actions.size();
-    if (verbose)
-    {
-      std::cout << '\n' << g << '\n';
-      for (int i=0; i!=n_actions; ++i)
-      {
-        std::cout << '[' << i << "] " << actions[i] << '\n';
-      }
-    }
-    if (actions.empty())
-    {
-      return g.get_player_index();
-    }
-    assert(!actions.empty());
-    const action& a = ais[g.get_player_index()].pick_action(
-      actions,
-      g.get_played_pile(),
-      const_cast<const game&>(g).get_active_hand()
-    );
-    if (verbose)
-    {
-      std::cout << "Do action: " << a << '\n';
-    }
-    g.do_action(a);
-  }
-
-}
 
 std::vector<ai_strategy> parse_strategies(const std::string& s)
 {
@@ -61,14 +17,12 @@ std::vector<ai_strategy> parse_strategies(const std::string& s)
   return v;
 }
 
-void run_experiment(
+std::vector<int> tally_winners(
   const std::vector<ai_strategy>& strategies,
   const int n_experiments
 )
 {
-  const int n = strategies.size();
-
-  std::vector<int> tally(n, 0);
+  std::vector<int> tally(strategies.size(), 0);
   for (int rng_seed=0; rng_seed!=n_experiments; ++rng_seed)
   {
     const int winner = get_winner(
@@ -77,17 +31,7 @@ void run_experiment(
     );
     ++tally[winner];
   }
-  //Post-process friendly
-  std::copy(
-    std::begin(strategies),
-    std::end(strategies),
-    std::ostream_iterator<ai_strategy>(std::cout, "")
-  );
-  for (int i=0; i!=n; ++i)
-  {
-    std::cout << "|" << static_cast<double>(100.0 * tally[i] / n_experiments);
-  }
-  std::cout << '\n';
+  return tally;
 }
 
 int main(int argc, char* argv[])
@@ -134,5 +78,21 @@ int main(int argc, char* argv[])
     std::cout << "Number of experiments must be a number\n";
     return 1;
   }
-  run_experiment(parse_strategies(args[1]), std::stoi(args[2]));
+  const auto strategies = parse_strategies(args[1]);
+  const int n_experiments = std::stoi(args[2]);
+  const auto tally = tally_winners(
+    strategies,
+    n_experiments
+  );
+  const int n = strategies.size();
+  std::copy(
+    std::begin(strategies),
+    std::end(strategies),
+    std::ostream_iterator<ai_strategy>(std::cout, "")
+  );
+  for (int i=0; i!=n; ++i)
+  {
+    std::cout << "|" << static_cast<double>(100.0 * tally[i] / n_experiments);
+  }
+  std::cout << '\n';
 }

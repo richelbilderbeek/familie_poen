@@ -1,7 +1,7 @@
 #ifndef ACTION_H
 #define ACTION_H
 
-#include <memory>
+#include <vector>
 
 #include "action_type.h"
 #include "card.h"
@@ -14,14 +14,16 @@
 class action
 {
 public:
+  card get_card() const noexcept;
   action_type get_type() const noexcept { return m_type; }
-  card get_card() const noexcept { return *m_card; }
 private:
   action(const action_type type);
   action(const action_type type, const card& c);
   friend action create_draw_action() noexcept;
   friend action create_play_action(const card& c) noexcept;
-  std::unique_ptr<card> m_card;
+
+  ///Empty if no card, else of size 1
+  std::vector<card> m_card;
   action_type m_type;
 };
 

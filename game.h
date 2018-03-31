@@ -7,6 +7,7 @@
 
 #include <random>
 #include <vector>
+#include <utility>
 
 /// Game logic
 class game
@@ -16,6 +17,9 @@ public:
 
   ///Do an action
   void do_action(const action& a);
+
+  ///Get the history of all actions
+  const auto& get_action_history() const noexcept { return m_action_history; }
 
   ///Get all valid actions
   std::vector<action> get_actions() const noexcept;
@@ -51,6 +55,11 @@ public:
   int get_player_index() const noexcept { return m_player_index; }
 
 private:
+
+  ///History of all actions
+  ///int: player index
+  ///action: the action done
+  std::vector<std::pair<int, action>> m_action_history;
 
   ///The pile of cards to draw from
   std::vector<card> m_draw_pile;
