@@ -64,7 +64,7 @@ Values are: 1, 2, 5, 10, 20, 50.
    pile that has either the same color or value. If
    the player does so, it is the next player's turn
  * If no card can be played, the active player must draw a card.
-   If that card can be played, it is played. Then, it is
+   If that card can be played, it *may* be played. Then, it is
    the next player's turn.
  * Whoever gets rid of all cards wins the game
 
