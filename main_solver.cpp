@@ -6,6 +6,7 @@
 #include <cassert>
 #include <iostream>
 #include <iterator>
+#include <stdexcept>
 
 std::vector<ai_strategy> parse_strategies(const std::string& s)
 {
