@@ -108,10 +108,7 @@ What to do as any player:
 
  * Play H
  * Being the first to start is a small advantage
-
-To counteract this:
-
- * Play H
+ * Try to convince other player to play L
 
 ### Three player matches
 
@@ -247,10 +244,7 @@ What to do as any player:
 
  * Play H
  * Being the first to start is a small advantage
-
-To counteract this:
-
- * Play H
+ * Try to convince other players to play L
 
 ## Four players
 
@@ -886,10 +880,7 @@ What to do as any player:
 
  * Play H
  * Being the first to start is a small advantage
-
-To counteract this:
-
- * Play H
+ * Try to convince other players to play L
 
 ## External links
 
