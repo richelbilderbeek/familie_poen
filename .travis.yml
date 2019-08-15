@@ -1,5 +1,8 @@
 language: cpp
+dist: bionic
 compiler: gcc
+
+WILL FAIL
 
 addons:
   # Boost
